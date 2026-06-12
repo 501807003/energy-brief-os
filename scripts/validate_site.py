@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 DAILY_DIR = ROOT / "daily"
+MINIPROGRAM_DATA = ROOT / "wechat-miniprogram" / "utils" / "issues.js"
 
 REQUIRED_SECTION_IDS = {"solar", "wind", "storage", "grid", "market", "policy"}
 BAD_TEXT_MARKERS = ["\ufffd", "\u93c2", "\u59e3", "\u951b", "\u9286"]
@@ -104,6 +105,12 @@ def validate_html(issue: dict) -> None:
         fail("daily page must render source action buttons")
     if f'daily/{issue_date}.html' not in archive_html:
         fail("archive does not link to latest daily page")
+
+    miniprogram_data = read_text(MINIPROGRAM_DATA)
+    if issue_date not in miniprogram_data:
+        fail("miniprogram data does not include latest issue date")
+    if "module.exports = briefData" not in miniprogram_data:
+        fail("miniprogram data is not exported correctly")
 
 
 def main() -> None:

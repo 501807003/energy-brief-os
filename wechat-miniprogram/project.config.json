@@ -1,0 +1,14 @@
+{
+  "description": "新能源简报微信小程序预览版",
+  "appid": "touristappid",
+  "projectname": "energy-brief-os-miniprogram",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "latest"
+}

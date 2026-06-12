@@ -1,0 +1,22 @@
+<view class="page archive">
+  <view class="archive-hero">
+    <text class="eyebrow">历史归档</text>
+    <text class="title">每天的新能源判断，都留在这里。</text>
+  </view>
+
+  <view class="archive-list">
+    <button
+      class="archive-row"
+      wx:for="{{archive}}"
+      wx:key="date"
+      data-date="{{item.date}}"
+      bindtap="openIssue"
+    >
+      <view>
+        <text class="date">{{item.date}}</text>
+        <text class="headline">{{item.headline}}</text>
+      </view>
+      <text class="weekday">{{item.weekday}}</text>
+    </button>
+  </view>
+</view>

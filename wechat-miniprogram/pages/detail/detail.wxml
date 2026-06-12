@@ -1,0 +1,23 @@
+<view class="page detail" wx:if="{{section}}">
+  <view class="detail-hero">
+    <text class="rank">{{rank}}</text>
+    <text class="meta">{{section.label}} / {{issue.date}}</text>
+    <text class="title">{{section.title}}</text>
+    <text class="summary">{{section.summary}}</text>
+  </view>
+
+  <view class="reason-card">
+    <text class="label">为什么重要</text>
+    <text class="reason">{{section.why_it_matters}}</text>
+    <view class="tags">
+      <text class="tag" wx:for="{{section.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+
+  <view class="source-card">
+    <text class="label">原文入口</text>
+    <text class="source-name">{{section.source}}</text>
+    <text class="source-url">{{section.url}}</text>
+    <button class="copy-button" bindtap="copySource">复制原文链接</button>
+  </view>
+</view>

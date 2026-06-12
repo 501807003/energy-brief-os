@@ -1,0 +1,65 @@
+.archive {
+  padding-top: 32rpx;
+}
+
+.archive-hero {
+  padding: 44rpx 0 36rpx;
+}
+
+.eyebrow {
+  display: block;
+  color: #0071e3;
+  font-size: 26rpx;
+  font-weight: 760;
+}
+
+.title {
+  display: block;
+  margin-top: 18rpx;
+  font-size: 58rpx;
+  font-weight: 850;
+  line-height: 1.08;
+}
+
+.archive-list {
+  display: grid;
+  gap: 18rpx;
+}
+
+.archive-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rpx;
+  width: 100%;
+  min-height: 140rpx;
+  padding: 30rpx;
+  border-radius: 34rpx;
+  background: #fff;
+  text-align: left;
+  box-shadow: 0 20rpx 56rpx rgba(0, 0, 0, .06);
+}
+
+.date,
+.headline,
+.weekday {
+  display: block;
+}
+
+.date {
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+.headline {
+  margin-top: 10rpx;
+  color: #6e6e73;
+  font-size: 24rpx;
+}
+
+.weekday {
+  flex: 0 0 auto;
+  color: #0071e3;
+  font-size: 24rpx;
+  font-weight: 760;
+}

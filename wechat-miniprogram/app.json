@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/archive/archive"
+  ],
+  "window": {
+    "navigationBarTitleText": "新能源简报",
+    "navigationBarBackgroundColor": "#f5f5f7",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f5f7"
+  },
+  "style": "v2"
+}

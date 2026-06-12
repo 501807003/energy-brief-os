@@ -54,6 +54,7 @@
 
 ```powershell
 python scripts/generate_daily.py
+python scripts/export_miniprogram_data.py
 python scripts/validate_site.py
 ```
 
@@ -63,6 +64,7 @@ python scripts/validate_site.py
 - `daily/YYYY-MM-DD.html` 已生成。
 - `archive.html` 有最新日期链接。
 - 页面链接带 `styles.css?v=`，避免公网缓存旧样式。
+- `wechat-miniprogram/utils/issues.js` 已同步最新日期。
 - 首屏 6 个方向可点击跳转。
 - “查看原文”是蓝色按钮，不是普通下划线链接。
 - 没有乱码，例如 `鏂`、`姣`、`锛`、`�`。

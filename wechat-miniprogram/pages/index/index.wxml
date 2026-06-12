@@ -1,0 +1,58 @@
+<view class="page home" wx:if="{{issue}}">
+  <view class="topbar">
+    <text>新能源简报</text>
+    <button bindtap="openArchive">归档</button>
+  </view>
+
+  <view class="hero">
+    <text class="eyebrow">{{issue.weekday}} {{issue.generated_at}}</text>
+    <view class="title">
+      <text>每天早上</text>
+      <text>读懂新能源</text>
+    </view>
+    <text class="summary">{{issue.daily_judgment}}</text>
+  </view>
+
+  <view class="glass-panel">
+    <view class="panel-head">
+      <text class="panel-title">今天先看这 6 个方向</text>
+      <text class="panel-sub">点开一项，直接看判断和原文链接。</text>
+    </view>
+    <view class="section-list">
+      <button
+        class="section-row"
+        wx:for="{{sections}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        data-date="{{issue.date}}"
+        bindtap="openSection"
+      >
+        <text class="row-index">{{index + 1 < 10 ? '0' + (index + 1) : index + 1}}</text>
+        <view>
+          <text class="row-title">{{item.title}}</text>
+          <text class="row-desc">{{item.summary}}</text>
+        </view>
+      </button>
+    </view>
+  </view>
+
+  <view class="price-card">
+    <text class="block-label">价格观察</text>
+    <view class="price-row" wx:for="{{priceWatch}}" wx:key="label">
+      <view class="price-head">
+        <text>{{item.label}}</text>
+        <text>{{item.level}}</text>
+      </view>
+      <view class="track">
+        <view class="bar" style="width: {{item.value}}%;"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="learn-card">
+    <text class="block-label">今天只学一个概念</text>
+    <text class="learn-title">{{issue.learning_card.term}}</text>
+    <text class="learn-copy">{{issue.learning_card.plain_explanation}}</text>
+    <text class="learn-copy">{{issue.learning_card.project_angle}}</text>
+  </view>
+</view>
