@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 DAILY_DIR = ROOT / "daily"
+CSS_VERSION = "20260612-2"
 
 
 def esc(value: object) -> str:
@@ -67,7 +68,7 @@ def page_shell(title: str, body: str, prefix: str = "") -> str:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{esc(title)}</title>
-  <link rel="stylesheet" href="{prefix}assets/styles.css">
+  <link rel="stylesheet" href="{prefix}assets/styles.css?v={CSS_VERSION}">
 </head>
 <body>
   <nav class="site-nav">
