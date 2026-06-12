@@ -24,6 +24,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
       - name: Generate static pages
         run: python scripts/generate_daily.py
       - name: Upload artifact
