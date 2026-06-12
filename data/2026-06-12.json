@@ -1,0 +1,59 @@
+{
+  "date": "2026-06-12",
+  "weekday": "星期五",
+  "generated_at": "07:40",
+  "headline": "每天早上，读懂新能源。",
+  "hero_line_zh": "&#27599;&#22825;&#26089;&#19978;<br>&#35835;&#25026;&#26032;&#33021;&#28304;",
+  "daily_judgment": "",
+  "top_items": [
+    {
+      "title": "新能源上网电价市场化改革进入地方细则跟踪期",
+      "summary": "重点关注机制电价、电量规模、执行期限，以及不同地区对存量和增量项目的规则安排。",
+      "why_it_matters": "这些细节会影响项目收益预期，也会决定新增项目能否顺利参与当地市场。",
+      "source": "国家发展改革委 / 国家能源局政策跟踪",
+      "url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/202502/t20250209_1396066.html",
+      "tags": ["政策", "电价", "136号文"],
+      "priority": 98
+    },
+    {
+      "title": "绿电交易需要分开看电能量价格和绿证价格",
+      "summary": "日报会把交易规则拆成可理解的经营逻辑，避免把市场电价、绿电溢价和绿证价值混在一起。",
+      "why_it_matters": "分开看价格，才能判断一笔交易的真实价值，避免绿色属性重复计价。",
+      "source": "绿色电力交易规则跟踪",
+      "url": "https://hbj.nea.gov.cn/xxgk/fdzdgknr/hbjgfl/gfxwj/202408/t20240827_268457.html",
+      "tags": ["交易", "绿电", "绿证"],
+      "priority": 90
+    },
+    {
+      "title": "项目侧需要同步观察并网消纳和变电站配套进度",
+      "summary": "光伏、风电信息不能只看装机规模，还要结合接入条件、送出工程、储能配置和消纳边界。",
+      "why_it_matters": "装机规模不等于项目可落地，电网接入和配套工程往往决定实际投运节奏。",
+      "source": "项目与电网配套跟踪",
+      "url": "https://www.nea.gov.cn/",
+      "tags": ["光伏", "风电", "变电站", "消纳"],
+      "priority": 82
+    }
+  ],
+  "price_watch": [
+    { "label": "机制电价", "level": "高", "value": 82 },
+    { "label": "绿证价格", "level": "中", "value": 48 },
+    { "label": "现货价差", "level": "关注", "value": 68 }
+  ],
+  "learning_card": {
+    "term": "机制电价",
+    "plain_explanation": "机制电价不是简单补贴，而是新能源参与市场交易后，在市场外进行差价结算的一种安排。",
+    "project_angle": "评估项目时，要把市场成交价、机制电价、纳入机制的电量规模和执行期限放在一起看。"
+  },
+  "source_links": [
+    {
+      "title": "关于深化新能源上网电价市场化改革促进新能源高质量发展的通知",
+      "source": "国家发展改革委",
+      "url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/202502/t20250209_1396066.html"
+    },
+    {
+      "title": "电力中长期交易基本规则-绿色电力交易专章",
+      "source": "国家能源局派出机构",
+      "url": "https://hbj.nea.gov.cn/xxgk/fdzdgknr/hbjgfl/gfxwj/202408/t20240827_268457.html"
+    }
+  ]
+}
