@@ -1,5 +1,5 @@
 .home {
-  padding-top: 22rpx;
+  padding-top: 18rpx;
 }
 
 .topbar {
@@ -22,7 +22,7 @@
 }
 
 .hero {
-  padding: 72rpx 0 54rpx;
+  padding: 52rpx 0 40rpx;
 }
 
 .eyebrow {
@@ -36,20 +36,20 @@
 .title {
   display: grid;
   gap: 0;
-  margin-top: 22rpx;
+  margin-top: 18rpx;
   text-align: center;
-  font-size: 88rpx;
+  font-size: 78rpx;
   font-weight: 850;
-  line-height: .98;
+  line-height: 1;
   letter-spacing: 0;
 }
 
 .summary {
   display: block;
-  margin: 32rpx auto 0;
+  margin: 24rpx auto 0;
   max-width: 650rpx;
   color: #6e6e73;
-  font-size: 32rpx;
+  font-size: 29rpx;
   line-height: 1.45;
   text-align: center;
 }
@@ -63,13 +63,23 @@
 }
 
 .glass-panel {
-  padding: 34rpx;
-  background: linear-gradient(180deg, #ffffff, #eef5ff);
+  padding: 32rpx;
+  background:
+    radial-gradient(circle at 100% 0, rgba(0, 113, 227, .12), transparent 38%),
+    linear-gradient(180deg, #ffffff, #f1f7ff);
+}
+
+.panel-kicker {
+  display: block;
+  color: #0071e3;
+  font-size: 23rpx;
+  font-weight: 820;
 }
 
 .panel-title {
   display: block;
-  font-size: 42rpx;
+  margin-top: 12rpx;
+  font-size: 46rpx;
   font-weight: 820;
   line-height: 1.12;
 }
@@ -84,27 +94,47 @@
 
 .section-list {
   display: grid;
-  gap: 18rpx;
-  margin-top: 30rpx;
+  gap: 16rpx;
+  margin-top: 28rpx;
 }
 
 .section-row {
   display: grid;
-  grid-template-columns: 68rpx 1fr;
-  gap: 18rpx;
+  grid-template-columns: 92rpx minmax(0, 1fr) 28rpx;
+  align-items: center;
+  gap: 20rpx;
   width: 100%;
-  min-height: 138rpx;
-  padding: 24rpx;
-  border-radius: 28rpx;
-  background: rgba(255, 255, 255, .82);
+  min-height: 156rpx;
+  padding: 28rpx;
+  border-radius: 30rpx;
+  background: rgba(255, 255, 255, .9);
   text-align: left;
+  box-shadow: 0 14rpx 42rpx rgba(0, 0, 0, .045);
+}
+
+.row-index-wrap {
+  display: grid;
+  gap: 8rpx;
+  justify-items: start;
 }
 
 .row-index {
   color: #0071e3;
-  font-size: 24rpx;
+  font-size: 27rpx;
   font-weight: 800;
-  padding-top: 4rpx;
+}
+
+.row-label {
+  padding: 6rpx 12rpx;
+  border-radius: 999rpx;
+  color: #006edb;
+  background: #eaf3ff;
+  font-size: 21rpx;
+  font-weight: 720;
+}
+
+.row-content {
+  min-width: 0;
 }
 
 .row-title,
@@ -113,7 +143,7 @@
 }
 
 .row-title {
-  font-size: 30rpx;
+  font-size: 32rpx;
   font-weight: 760;
   line-height: 1.25;
 }
@@ -121,8 +151,15 @@
 .row-desc {
   margin-top: 10rpx;
   color: #6e6e73;
-  font-size: 24rpx;
+  font-size: 25rpx;
   line-height: 1.45;
+}
+
+.row-arrow {
+  color: #9a9aa0;
+  font-size: 44rpx;
+  line-height: 1;
+  text-align: right;
 }
 
 .price-card,
