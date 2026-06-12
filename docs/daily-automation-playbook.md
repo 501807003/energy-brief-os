@@ -26,6 +26,10 @@
 
 使用 `news-extractor` 时，只对明确文章 URL 做内容提取；搜索和筛选可以先用公开网页搜索完成。
 
+## 原文链接要求
+
+每个 `sections[*].url` 必须指向具体新闻、政策、公告或文章详情页，不能只填官网首页、栏目首页或搜索结果页。例如不能使用 `https://www.nea.gov.cn/` 作为详情链接。若官方首页只有栏目入口，需要继续点进具体文章；如果找不到对应详情页，就换一个有具体 URL 的权威来源。
+
 ## 数据更新要求
 
 每天新增一个文件：`data/YYYY-MM-DD.json`。
@@ -37,6 +41,7 @@
 - `hero_line_zh`，保持为 `每天早上<br>读懂新能源`
 - `daily_judgment`
 - `sections`，必须包含 `solar`、`wind`、`storage`、`grid`、`market`、`policy`
+- `sections[*].url` 必须是具体文章链接，不能是官网首页。
 - `price_watch`，至少 4 条
 - `learning_card`
 - `source_links`

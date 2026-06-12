@@ -12,6 +12,11 @@ REQUIRED_SECTION_IDS = {"solar", "wind", "storage", "grid", "market", "policy"}
 BAD_TEXT_MARKERS = ["\ufffd", "\u93c2", "\u59e3", "\u951b", "\u9286"]
 OLD_ENGLISH_COPY = "Track three lines first today"
 HERO_TITLE = "\u6bcf\u5929\u65e9\u4e0a<br>\u8bfb\u61c2\u65b0\u80fd\u6e90"
+GENERIC_HOME_URLS = {
+    "https://www.nea.gov.cn/",
+    "https://www.ndrc.gov.cn/",
+    "https://www.gov.cn/",
+}
 
 
 def fail(message: str) -> None:
@@ -55,6 +60,8 @@ def validate_issue(issue: dict) -> None:
     for section in sections:
         if not section.get("url"):
             fail(f"section {section.get('id')} has no source url")
+        if section.get("url") in GENERIC_HOME_URLS:
+            fail(f"section {section.get('id')} must link to a concrete article, not a homepage")
         for key in ["title", "summary", "why_it_matters", "label"]:
             if not section.get(key):
                 fail(f"section {section.get('id')} missing {key}")
