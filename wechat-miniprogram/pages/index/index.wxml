@@ -1,23 +1,23 @@
 <view class="page home" wx:if="{{issue}}">
   <view class="topbar">
-    <text>&#26032;&#33021;&#28304;&#31616;&#25253;</text>
-    <button bindtap="openArchive">&#24402;&#26723;</button>
+    <text>新能源简报</text>
+    <button bindtap="openArchive">归档</button>
   </view>
 
   <view class="hero">
     <text class="eyebrow">{{issue.weekday}} {{issue.generated_at}}</text>
     <view class="title">
-      <text>&#27599;&#22825;&#26089;&#19978;</text>
-      <text>&#35835;&#25026;&#26032;&#33021;&#28304;</text>
+      <text>每天早上</text>
+      <text>读懂新能源</text>
     </view>
     <text class="summary">{{issue.daily_judgment}}</text>
   </view>
 
   <view class="glass-panel">
     <view class="panel-head">
-      <text class="panel-kicker">&#20170;&#26085;&#36335;&#32447;</text>
-      <text class="panel-title">&#20808;&#25235;&#20303; 6 &#26465;&#32447;</text>
-      <text class="panel-sub">&#28857;&#24320;&#19968;&#39033;&#65292;&#30452;&#25509;&#30475;&#21028;&#26029;&#12289;&#35201;&#28857;&#21644;&#21407;&#25991;&#38142;&#25509;&#12290;</text>
+      <text class="panel-kicker">今日路线</text>
+      <text class="panel-title">先抓住 6 条线</text>
+      <text class="panel-sub">点开一项，直接看判断、要点和原文链接。</text>
     </view>
     <view class="section-list">
       <button
@@ -36,13 +36,13 @@
           <text class="row-title">{{item.title}}</text>
           <text class="row-desc">{{item.summary}}</text>
         </view>
-        <text class="row-arrow">&#8250;</text>
+        <text class="row-arrow">›</text>
       </button>
     </view>
   </view>
 
   <view class="price-card">
-    <text class="block-label">&#20215;&#26684;&#35266;&#23519;</text>
+    <text class="block-label">价格观察</text>
     <view class="price-row" wx:for="{{priceWatch}}" wx:key="label">
       <view class="price-head">
         <text>{{item.label}}</text>
@@ -55,7 +55,7 @@
   </view>
 
   <view class="learn-card">
-    <text class="block-label">&#20170;&#22825;&#21482;&#23398;&#19968;&#20010;&#27010;&#24565;</text>
+    <text class="block-label">今天只学一个概念</text>
     <text class="learn-title">{{issue.learning_card.term}}</text>
     <text class="learn-copy">{{issue.learning_card.plain_explanation}}</text>
     <text class="learn-copy">{{issue.learning_card.project_angle}}</text>

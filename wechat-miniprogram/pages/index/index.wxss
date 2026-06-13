@@ -99,13 +99,12 @@
 }
 
 .section-row {
-  display: grid;
-  grid-template-columns: 92rpx minmax(0, 1fr) 28rpx;
+  display: flex;
   align-items: center;
   gap: 20rpx;
   width: 100%;
   min-height: 156rpx;
-  padding: 28rpx;
+  padding: 26rpx 24rpx;
   border-radius: 30rpx;
   background: rgba(255, 255, 255, .9);
   text-align: left;
@@ -113,6 +112,7 @@
 }
 
 .row-index-wrap {
+  flex: 0 0 82rpx;
   display: grid;
   gap: 8rpx;
   justify-items: start;
@@ -129,11 +129,13 @@
   border-radius: 999rpx;
   color: #006edb;
   background: #eaf3ff;
-  font-size: 21rpx;
+  font-size: 20rpx;
   font-weight: 720;
+  white-space: nowrap;
 }
 
 .row-content {
+  flex: 1 1 auto;
   min-width: 0;
 }
 
@@ -156,8 +158,9 @@
 }
 
 .row-arrow {
+  flex: 0 0 24rpx;
   color: #9a9aa0;
-  font-size: 44rpx;
+  font-size: 38rpx;
   line-height: 1;
   text-align: right;
 }
