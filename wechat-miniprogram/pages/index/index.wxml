@@ -15,11 +15,6 @@
     <text class="summary">{{issue.daily_judgment}}</text>
   </view>
 
-  <view class="judgment-card">
-    <text class="judgment-label">今日判断</text>
-    <text class="judgment-copy">{{issue.daily_judgment}}</text>
-  </view>
-
   <view class="focus-panel">
     <view class="panel-head">
       <text class="panel-kicker">今日路线</text>
