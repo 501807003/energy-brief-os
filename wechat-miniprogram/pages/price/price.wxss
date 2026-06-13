@@ -221,3 +221,18 @@
   font-size: 24rpx;
   line-height: 1.55;
 }
+
+.risk-note {
+  margin-top: 26rpx;
+  padding: 24rpx 28rpx;
+  border-radius: 28rpx;
+  background: #fff;
+  color: #7b828c;
+  font-size: 23rpx;
+  line-height: 1.55;
+  box-shadow: 0 16rpx 44rpx rgba(0, 0, 0, .05);
+}
+
+.risk-note text {
+  display: block;
+}

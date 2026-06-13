@@ -50,4 +50,8 @@
       <text class="tariff-note">{{item.note}}</text>
     </view>
   </view>
+
+  <view class="risk-note">
+    <text>电价数据仅供学习参考，不构成交易、投资或正式报价依据。</text>
+  </view>
 </view>
