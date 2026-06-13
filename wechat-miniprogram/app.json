@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/webview/webview",
     "pages/detail/detail",
     "pages/archive/archive"
   ],

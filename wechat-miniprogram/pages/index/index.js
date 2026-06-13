@@ -23,6 +23,18 @@ Page({
     });
   },
 
+  openSource(event) {
+    const { url, title } = event.currentTarget.dataset;
+    if (!url) {
+      wx.showToast({ title: "暂无原文链接", icon: "none" });
+      return;
+    }
+
+    wx.navigateTo({
+      url: `/pages/webview/webview?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title || "原文")}`
+    });
+  },
+
   openArchive() {
     wx.navigateTo({
       url: "/pages/archive/archive"

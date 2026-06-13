@@ -6,31 +6,40 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64rpx;
-  font-size: 28rpx;
-  font-weight: 700;
+  min-height: 68rpx;
 }
 
-.topbar button {
-  min-width: 112rpx;
-  height: 48rpx;
-  border-radius: 999rpx;
+.brand,
+.date-line {
+  display: block;
+}
+
+.brand {
+  font-size: 28rpx;
+  font-weight: 780;
+}
+
+.date-line {
+  margin-top: 6rpx;
+  color: #8f8f95;
+  font-size: 22rpx;
+  font-weight: 600;
+}
+
+.archive-link {
+  min-width: 72rpx;
+  height: 44rpx;
+  padding: 0 4rpx;
+  border-radius: 0;
   color: #0071e3;
-  background: #fff;
-  font-size: 24rpx;
-  box-shadow: 0 12rpx 32rpx rgba(0, 0, 0, .06);
+  background: transparent;
+  font-size: 25rpx;
+  font-weight: 700;
+  text-align: right;
 }
 
 .hero {
-  padding: 52rpx 0 40rpx;
-}
-
-.eyebrow {
-  display: block;
-  color: #6e6e73;
-  font-size: 26rpx;
-  font-weight: 650;
-  text-align: center;
+  padding: 48rpx 0 40rpx;
 }
 
 .title {
