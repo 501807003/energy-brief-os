@@ -307,6 +307,76 @@ const briefData = {
       ]
     }
   },
+  "priceTrend": [
+    {
+      "label": "多晶硅价格",
+      "latestLevel": "关注",
+      "latestValue": 66,
+      "points": [
+        {
+          "date": "2026-06-12",
+          "value": 66,
+          "level": "关注"
+        },
+        {
+          "date": "2026-06-13",
+          "value": 66,
+          "level": "关注"
+        }
+      ]
+    },
+    {
+      "label": "组件出厂价",
+      "latestLevel": "跟踪",
+      "latestValue": 61,
+      "points": [
+        {
+          "date": "2026-06-12",
+          "value": 58,
+          "level": "跟踪"
+        },
+        {
+          "date": "2026-06-13",
+          "value": 61,
+          "level": "跟踪"
+        }
+      ]
+    },
+    {
+      "label": "输电权交易",
+      "latestLevel": "观察",
+      "latestValue": 74,
+      "points": [
+        {
+          "date": "2026-06-12",
+          "value": 82,
+          "level": "高"
+        },
+        {
+          "date": "2026-06-13",
+          "value": 74,
+          "level": "观察"
+        }
+      ]
+    },
+    {
+      "label": "储能质量监督",
+      "latestLevel": "规范",
+      "latestValue": 49,
+      "points": [
+        {
+          "date": "2026-06-12",
+          "value": 52,
+          "level": "观察"
+        },
+        {
+          "date": "2026-06-13",
+          "value": 49,
+          "level": "规范"
+        }
+      ]
+    }
+  ],
   "archive": [
     {
       "date": "2026-06-13",

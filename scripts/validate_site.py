@@ -72,6 +72,7 @@ def validate_html(issue: dict) -> None:
     issue_date = issue["date"]
     html_paths = [
         ROOT / "index.html",
+        ROOT / "price.html",
         DAILY_DIR / f"{issue_date}.html",
         ROOT / "archive.html",
     ]
@@ -89,6 +90,7 @@ def validate_html(issue: dict) -> None:
     index_html = read_text(ROOT / "index.html")
     daily_html = read_text(DAILY_DIR / f"{issue_date}.html")
     archive_html = read_text(ROOT / "archive.html")
+    price_html = read_text(ROOT / "price.html")
 
     if f'<h1 class="hero-title">{HERO_TITLE}</h1>' not in index_html:
         fail("hero title split is missing or changed")
@@ -105,12 +107,18 @@ def validate_html(issue: dict) -> None:
         fail("daily page must render source action buttons")
     if f'daily/{issue_date}.html' not in archive_html:
         fail("archive does not link to latest daily page")
+    if "trend-card" not in price_html:
+        fail("price.html does not render trend cards")
 
     miniprogram_data = read_text(MINIPROGRAM_DATA)
     if issue_date not in miniprogram_data:
         fail("miniprogram data does not include latest issue date")
     if "module.exports = briefData" not in miniprogram_data:
         fail("miniprogram data is not exported correctly")
+    if "priceTrend" not in miniprogram_data:
+        fail("miniprogram data does not include price trend")
+    if not (ROOT / "wechat-miniprogram" / "pages" / "price" / "price.wxml").exists():
+        fail("miniprogram price page is missing")
 
 
 def main() -> None:

@@ -41,6 +41,7 @@ TEXT = {
     "why": "\u4e3a\u4ec0\u4e48\u91cd\u8981\uff1a",
     "read_source": "\u67e5\u770b\u539f\u6587",
     "price_watch": "\u4ef7\u683c\u89c2\u5bdf",
+    "price_trend": "\u4ef7\u683c\u8d8b\u52bf",
     "learn_one": "\u4eca\u5929\u53ea\u5b66\u4e00\u4e2a\u6982\u5ff5",
     "source_links": "\u539f\u6587\u548c\u5b66\u4e60\u5165\u53e3",
     "history": "\u5386\u53f2\u5f52\u6863",
@@ -148,6 +149,92 @@ def render_price_rows(price_watch: list[dict]) -> str:
     return "\n".join(rows)
 
 
+def build_price_trend(issues: list[dict]) -> list[dict]:
+    chronological = sorted(issues, key=lambda issue: issue.get("date", ""))
+    latest_watch = chronological[-1].get("price_watch", []) if chronological else []
+    series_count = min(4, len(latest_watch))
+    trend = []
+    for index in range(series_count):
+        latest_item = latest_watch[index]
+        points = []
+        for issue in chronological:
+            watch = issue.get("price_watch", [])
+            if index >= len(watch):
+                continue
+            item = watch[index]
+            points.append({
+                "date": issue.get("date", ""),
+                "value": max(0, min(100, int(item.get("value", 0)))),
+                "level": item.get("level", "")
+            })
+        trend.append({
+            "label": latest_item.get("label", ""),
+            "latest_level": latest_item.get("level", ""),
+            "latest_value": max(0, min(100, int(latest_item.get("value", 0)))),
+            "points": points
+        })
+    return trend
+
+
+def sparkline_points(points: list[dict], width: int = 420, height: int = 130) -> str:
+    if not points:
+        return ""
+    if len(points) == 1:
+        x = width
+        y = height - (points[0]["value"] / 100 * height)
+        return f"{x:.1f},{y:.1f}"
+    coords = []
+    for index, point in enumerate(points):
+        x = index / (len(points) - 1) * width
+        y = height - (point["value"] / 100 * height)
+        coords.append(f"{x:.1f},{y:.1f}")
+    return " ".join(coords)
+
+
+def render_price_trend_page(issues: list[dict]) -> str:
+    trend = build_price_trend(issues)
+    latest = issues[0]
+    cards = []
+    for item in trend:
+        points = item["points"]
+        first = points[0]["value"] if points else item["latest_value"]
+        latest_value = item["latest_value"]
+        delta = latest_value - first
+        delta_text = f"+{delta}" if delta > 0 else str(delta)
+        direction = "\u5347\u6e29" if delta > 0 else ("\u56de\u843d" if delta < 0 else "\u6301\u5e73")
+        date_labels = "".join(f"<span>{esc(point['date'][5:])}</span>" for point in points)
+        cards.append(f"""
+      <article class="trend-card">
+        <div class="trend-head">
+          <div>
+            <p class="section-label">{esc(TEXT["price_trend"])}</p>
+            <h2>{esc(item["label"])}</h2>
+          </div>
+          <div class="trend-score"><b>{latest_value}</b><span>{esc(item["latest_level"])}</span></div>
+        </div>
+        <svg class="trend-chart" viewBox="0 0 420 150" role="img" aria-label="{esc(item["label"])}趋势图">
+          <line x1="0" y1="130" x2="420" y2="130" />
+          <polyline points="{sparkline_points(points)}" />
+        </svg>
+        <div class="trend-dates">{date_labels}</div>
+        <p class="trend-note">\u76f8\u6bd4\u9996\u4e2a\u8bb0\u5f55\u70b9\uff0c\u5f53\u524d\u6307\u6570 {esc(delta_text)}\uff0c\u72b6\u6001\u4e3a\u201c{esc(direction)}\u201d\u3002</p>
+      </article>""")
+
+    body = f"""
+  <main class="trend-page">
+    <section class="trend-hero">
+      <p class="eyebrow">{esc(TEXT["brand"])} / {esc(latest.get("date"))}</p>
+      <h1>{esc(TEXT["price_trend"])}</h1>
+      <p>\u7528\u6bcf\u65e5\u7b80\u62a5\u91cc\u7684\u4ef7\u683c\u89c2\u5bdf\u6307\u6570\uff0c\u8ddf\u8e2a\u5149\u4f0f\u3001\u98ce\u7535\u3001\u4ea4\u6613\u548c\u50a8\u80fd\u7b49\u65b9\u5411\u7684\u6ce2\u52a8\u3002</p>
+    </section>
+    <section class="trend-grid">
+{''.join(cards)}
+    </section>
+  </main>
+"""
+    return page_shell(f'{TEXT["brand"]} - {TEXT["price_trend"]}', body, "")
+
+
 def render_sources(source_links: list[dict]) -> str:
     links = []
     for source in source_links:
@@ -201,10 +288,11 @@ def render_daily(issue: dict, prefix: str = "") -> str:
 {render_section_cards(sections, issue_date)}
       </div>
       <aside class="side-stack">
-        <section class="price-card">
+        <a class="price-card price-link-card" href="{prefix}price.html">
           <p class="section-label">{esc(TEXT["price_watch"])}</p>
 {render_price_rows(price_watch)}
-        </section>
+          <span class="price-more">\u67e5\u770b\u8d8b\u52bf\u56fe</span>
+        </a>
         <section class="learning-card">
           <p class="section-label">{esc(TEXT["learn_one"])}</p>
           <h3>{esc(learning.get("term"))}</h3>
@@ -252,6 +340,7 @@ def main() -> None:
     for issue in issues:
         (DAILY_DIR / f"{issue.get('date')}.html").write_text(render_daily(issue, "../"), encoding="utf-8")
     (ROOT / "archive.html").write_text(render_archive(issues), encoding="utf-8")
+    (ROOT / "price.html").write_text(render_price_trend_page(issues), encoding="utf-8")
 
 
 if __name__ == "__main__":

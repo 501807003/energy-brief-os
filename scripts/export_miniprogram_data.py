@@ -17,6 +17,35 @@ def load_issues() -> list[dict]:
     return sorted(issues, key=lambda issue: issue.get("date", ""), reverse=True)
 
 
+def build_price_trend(issues: list[dict]) -> list[dict]:
+    chronological = sorted(issues, key=lambda issue: issue.get("date", ""))
+    latest_watch = chronological[-1].get("price_watch", []) if chronological else []
+    series_count = min(4, len(latest_watch))
+    trend = []
+
+    for index in range(series_count):
+        latest_item = latest_watch[index]
+        points = []
+        for issue in chronological:
+            watch = issue.get("price_watch", [])
+            if index >= len(watch):
+                continue
+            item = watch[index]
+            points.append({
+                "date": issue.get("date", ""),
+                "value": max(0, min(100, int(item.get("value", 0)))),
+                "level": item.get("level", "")
+            })
+        trend.append({
+            "label": latest_item.get("label", ""),
+            "latestLevel": latest_item.get("level", ""),
+            "latestValue": max(0, min(100, int(latest_item.get("value", 0)))),
+            "points": points
+        })
+
+    return trend
+
+
 def main() -> None:
     issues = load_issues()
     if not issues:
@@ -25,6 +54,7 @@ def main() -> None:
     payload = {
         "latestDate": issues[0]["date"],
         "issues": {issue["date"]: issue for issue in issues},
+        "priceTrend": build_price_trend(issues),
         "archive": [
             {
                 "date": issue["date"],

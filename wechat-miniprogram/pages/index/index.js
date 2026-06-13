@@ -39,5 +39,11 @@ Page({
     wx.navigateTo({
       url: "/pages/archive/archive"
     });
+  },
+
+  openPriceTrend() {
+    wx.navigateTo({
+      url: "/pages/price/price"
+    });
   }
 });

@@ -1,0 +1,31 @@
+<view class="page price-page">
+  <view class="price-hero">
+    <text class="kicker">价格观察</text>
+    <text class="title">看见波动，才好判断方向。</text>
+    <text class="copy">这里用每日简报里的价格观察指数，跟踪新能源关键价格和政策信号。</text>
+  </view>
+
+  <view class="trend-list">
+    <view class="trend-card" wx:for="{{trend}}" wx:key="label">
+      <view class="trend-head">
+        <view>
+          <text class="trend-label">{{item.label}}</text>
+          <text class="trend-dates">{{item.dates}}</text>
+        </view>
+        <view class="score">
+          <text>{{item.latestValue}}</text>
+          <text>{{item.latestLevel}}</text>
+        </view>
+      </view>
+      <view class="bar-chart">
+        <view class="bar-item" wx:for="{{item.bars}}" wx:for-item="point" wx:key="date">
+          <view class="bar-wrap">
+            <view class="bar-fill" style="height: {{point.height}}rpx;"></view>
+          </view>
+          <text>{{point.date}}</text>
+        </view>
+      </view>
+      <text class="trend-note">较首个记录点 {{item.deltaText}}，用于观察趋势变化，不等同于精确报价。</text>
+    </view>
+  </view>
+</view>
