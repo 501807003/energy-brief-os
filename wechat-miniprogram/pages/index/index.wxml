@@ -4,8 +4,8 @@
       <text class="brand">新能源简报</text>
       <text class="date-line">{{issue.weekday}} {{issue.generated_at}}</text>
     </view>
-    <button class="archive-link" bindtap="openArchive">历史</button>
   </view>
+  <view class="archive-link" bindtap="openArchive">历史</view>
 
   <view class="hero">
     <view class="title">

@@ -1,13 +1,14 @@
 .home {
+  position: relative;
   padding-top: 18rpx;
 }
 
 .topbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24rpx;
+  justify-content: flex-start;
   min-height: 68rpx;
+  padding-right: 92rpx;
 }
 
 .brand,
@@ -28,21 +29,22 @@
 }
 
 .archive-link {
-  flex: 0 0 auto;
-  display: inline-flex;
+  position: absolute;
+  top: 22rpx;
+  right: 32rpx;
+  z-index: 3;
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: auto;
-  min-width: 72rpx;
-  height: 44rpx;
-  margin-left: auto;
-  padding: 0 4rpx;
-  border-radius: 0;
+  min-width: 76rpx;
+  height: 48rpx;
+  padding: 0 16rpx;
+  border-radius: 999rpx;
   color: #0071e3;
-  background: transparent;
+  background: rgba(255, 255, 255, .72);
   font-size: 25rpx;
   font-weight: 700;
-  text-align: right;
+  box-shadow: 0 10rpx 28rpx rgba(0, 0, 0, .06);
 }
 
 .hero {
