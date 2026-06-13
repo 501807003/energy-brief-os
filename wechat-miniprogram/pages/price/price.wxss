@@ -32,6 +32,34 @@
   line-height: 1.55;
 }
 
+.range-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10rpx;
+  margin: 0 0 28rpx;
+  padding: 8rpx;
+  border-radius: 999rpx;
+  background: #e9edf3;
+}
+
+.range-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 58rpx;
+  border-radius: 999rpx;
+  color: #656b73;
+  background: transparent;
+  font-size: 25rpx;
+  font-weight: 760;
+}
+
+.range-tab.active {
+  color: #0071e3;
+  background: #fff;
+  box-shadow: 0 10rpx 26rpx rgba(0, 0, 0, .08);
+}
+
 .tariff-list {
   display: grid;
   gap: 26rpx;
@@ -98,6 +126,7 @@
 .tariff-change {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 18rpx;
   margin-top: 26rpx;
   padding: 18rpx 22rpx;
@@ -109,7 +138,9 @@
 }
 
 .tariff-change text:last-child {
+  max-width: 420rpx;
   color: #0071e3;
+  text-align: right;
 }
 
 .tariff-chart {

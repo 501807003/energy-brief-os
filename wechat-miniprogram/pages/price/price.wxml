@@ -5,6 +5,16 @@
     <text class="copy">这里固定记录光伏和风电今日参考电价，单位为元/千瓦时；其他价格信号随日报补充。</text>
   </view>
 
+  <view class="range-tabs">
+    <button
+      class="range-tab {{rangeDays === item.value ? 'active' : ''}}"
+      wx:for="{{rangeOptions}}"
+      wx:key="value"
+      data-range="{{item.value}}"
+      bindtap="setRange"
+    >{{item.label}}</button>
+  </view>
+
   <view class="tariff-list">
     <view class="tariff-card" wx:for="{{trend}}" wx:key="id">
       <view class="tariff-head">
@@ -20,7 +30,7 @@
 
       <view class="tariff-change">
         <text>{{item.latestLevel}}</text>
-        <text>较首日 {{item.deltaText}}，{{item.directionText}}</text>
+        <text>{{item.rangeText}} / {{item.deltaText}}，{{item.directionText}}</text>
       </view>
 
       <view class="tariff-chart">
