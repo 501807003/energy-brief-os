@@ -46,19 +46,39 @@
     </scroll-view>
   </view>
 
-  <button class="price-card price-tap-card" bindtap="openPriceTrend">
-    <text class="block-label">价格观察</text>
-    <view class="price-row" wx:for="{{priceWatch}}" wx:key="label">
-      <view class="price-head">
-        <text>{{item.label}}</text>
-        <text>{{item.level}}</text>
+  <view class="price-card price-tap-card" bindtap="openPriceTrend">
+    <view class="price-top">
+      <view>
+        <text class="block-label">价格观察</text>
+        <text class="price-title">今日电价速览</text>
+        <text class="price-sub">光伏、风电每天固定更新，辅助信号跟随日报变化。</text>
       </view>
-      <view class="track">
-        <view class="bar" style="width: {{item.value}}%;"></view>
+      <text class="price-more">趋势 ›</text>
+    </view>
+
+    <view class="tariff-strip">
+      <view class="tariff-pill" wx:for="{{tariffWatch}}" wx:key="id">
+        <text class="tariff-name">{{item.shortLabel}}</text>
+        <view class="tariff-value-line">
+          <text class="tariff-value">{{item.valueText}}</text>
+          <text class="tariff-unit">{{item.unit}}</text>
+        </view>
+        <text class="tariff-level">{{item.level}}</text>
       </view>
     </view>
-    <text class="price-more">查看趋势图 ›</text>
-  </button>
+
+    <view class="signal-list">
+      <view class="price-row" wx:for="{{priceWatch}}" wx:key="label">
+        <view class="price-head">
+          <text>{{item.label}}</text>
+          <text>{{item.level}}</text>
+        </view>
+        <view class="track">
+          <view class="bar" style="width: {{item.value}}%;"></view>
+        </view>
+      </view>
+    </view>
+  </view>
 
   <view class="learn-card">
     <text class="block-label">今天只学一个概念</text>

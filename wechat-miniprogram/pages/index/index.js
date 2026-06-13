@@ -1,10 +1,23 @@
 const briefData = require("../../utils/issues");
 
+function formatPrice(value) {
+  return Number(value || 0).toFixed(3).replace(/0+$/, "").replace(/\.$/, "");
+}
+
+function buildTariffWatch(items) {
+  return (items || []).map((item) => ({
+    ...item,
+    shortLabel: String(item.label || "").replace("今日电价", ""),
+    valueText: formatPrice(item.value)
+  }));
+}
+
 Page({
   data: {
     issue: null,
     sections: [],
-    priceWatch: []
+    priceWatch: [],
+    tariffWatch: []
   },
 
   onLoad() {
@@ -12,7 +25,8 @@ Page({
     this.setData({
       issue,
       sections: issue.sections || [],
-      priceWatch: issue.price_watch || []
+      priceWatch: issue.price_watch || [],
+      tariffWatch: buildTariffWatch(issue.tariff_watch)
     });
   },
 
