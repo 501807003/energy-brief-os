@@ -13,32 +13,35 @@
     <text class="summary">{{issue.daily_judgment}}</text>
   </view>
 
-  <view class="glass-panel">
+  <view class="focus-panel">
     <view class="panel-head">
       <text class="panel-kicker">今日路线</text>
       <text class="panel-title">先抓住 6 条线</text>
-      <text class="panel-sub">点开一项，直接看判断、要点和原文链接。</text>
+      <text class="panel-sub">左右滑动浏览，点开看判断和原文。</text>
     </view>
-    <view class="section-list">
-      <button
-        class="section-row"
-        wx:for="{{sections}}"
-        wx:key="id"
-        data-id="{{item.id}}"
-        data-date="{{issue.date}}"
-        bindtap="openSection"
-      >
-        <view class="row-index-wrap">
-          <text class="row-index">{{index + 1 < 10 ? '0' + (index + 1) : index + 1}}</text>
-          <text class="row-label">{{item.label}}</text>
-        </view>
-        <view class="row-content">
-          <text class="row-title">{{item.title}}</text>
-          <text class="row-desc">{{item.summary}}</text>
-        </view>
-        <text class="row-arrow">›</text>
-      </button>
-    </view>
+
+    <scroll-view class="focus-scroll" scroll-x="true" enhanced="true" show-scrollbar="false">
+      <view class="focus-track">
+        <button
+          class="focus-card"
+          wx:for="{{sections}}"
+          wx:key="id"
+          data-id="{{item.id}}"
+          data-date="{{issue.date}}"
+          bindtap="openSection"
+        >
+          <view class="card-top">
+            <view>
+              <text class="card-index">{{index + 1 < 10 ? '0' + (index + 1) : index + 1}}</text>
+              <text class="card-label">{{item.label}}</text>
+            </view>
+            <text class="card-arrow">›</text>
+          </view>
+          <text class="card-title">{{item.title}}</text>
+          <text class="card-desc">{{item.summary}}</text>
+        </button>
+      </view>
+    </scroll-view>
   </view>
 
   <view class="price-card">
