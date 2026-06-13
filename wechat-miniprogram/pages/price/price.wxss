@@ -1,9 +1,9 @@
 .price-page {
-  padding-top: 40rpx;
+  padding-top: 36rpx;
 }
 
 .price-hero {
-  padding: 24rpx 0 32rpx;
+  padding: 18rpx 0 32rpx;
 }
 
 .kicker,
@@ -14,96 +14,135 @@
 
 .kicker {
   color: #0071e3;
-  font-size: 26rpx;
-  font-weight: 780;
+  font-size: 25rpx;
+  font-weight: 820;
 }
 
 .title {
-  margin-top: 20rpx;
-  font-size: 60rpx;
+  margin-top: 18rpx;
+  font-size: 54rpx;
   font-weight: 860;
-  line-height: 1.08;
+  line-height: 1.12;
 }
 
 .copy {
-  margin-top: 22rpx;
+  margin-top: 20rpx;
   color: #6e6e73;
-  font-size: 29rpx;
+  font-size: 28rpx;
   line-height: 1.55;
 }
 
-.trend-list {
+.tariff-list {
   display: grid;
+  gap: 26rpx;
+}
+
+.tariff-card {
+  padding: 34rpx;
+  border-radius: 40rpx;
+  background: linear-gradient(180deg, #fff, #f8fafd);
+  border: 1rpx solid rgba(0, 0, 0, .05);
+  box-shadow: 0 26rpx 76rpx rgba(0, 0, 0, .08);
+}
+
+.tariff-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 24rpx;
 }
 
-.trend-card {
-  padding: 34rpx;
-  border-radius: 40rpx;
-  background: #fff;
-  box-shadow: 0 24rpx 70rpx rgba(0, 0, 0, .07);
-}
-
-.trend-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 20rpx;
-  align-items: flex-start;
-}
-
-.trend-label,
-.trend-dates {
+.tariff-label,
+.tariff-dates,
+.tariff-value text,
+.tariff-change text,
+.tariff-note {
   display: block;
 }
 
-.trend-label {
-  font-size: 34rpx;
-  font-weight: 820;
+.tariff-label {
+  font-size: 36rpx;
+  font-weight: 850;
   line-height: 1.18;
 }
 
-.trend-dates {
+.tariff-dates {
   margin-top: 12rpx;
   color: #8f8f95;
   font-size: 22rpx;
 }
 
-.score {
-  flex: 0 0 104rpx;
-  padding: 18rpx 14rpx;
-  border-radius: 28rpx;
-  color: #0071e3;
-  background: #eef6ff;
+.tariff-value {
+  flex: 0 0 168rpx;
+  padding: 20rpx 18rpx;
+  border-radius: 30rpx;
+  color: #fff;
+  background: #0f1218;
   text-align: center;
+  box-shadow: 0 18rpx 42rpx rgba(0, 0, 0, .18);
 }
 
-.score text {
-  display: block;
-}
-
-.score text:first-child {
-  font-size: 40rpx;
-  font-weight: 850;
+.tariff-value text:first-child {
+  font-size: 46rpx;
+  font-weight: 880;
   line-height: 1;
 }
 
-.score text:last-child {
+.tariff-value text:last-child {
   margin-top: 8rpx;
-  color: #6e6e73;
-  font-size: 21rpx;
+  color: rgba(255, 255, 255, .62);
+  font-size: 20rpx;
+  line-height: 1.25;
 }
 
-.bar-chart {
+.tariff-change {
+  display: flex;
+  justify-content: space-between;
+  gap: 18rpx;
+  margin-top: 26rpx;
+  padding: 18rpx 22rpx;
+  border-radius: 24rpx;
+  background: #f5f8fc;
+  color: #3a4653;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+.tariff-change text:last-child {
+  color: #0071e3;
+}
+
+.tariff-chart {
+  position: relative;
   display: flex;
   align-items: flex-end;
-  gap: 18rpx;
-  height: 190rpx;
-  margin-top: 30rpx;
-  padding: 16rpx 0 0;
-  border-bottom: 2rpx solid rgba(0, 0, 0, .08);
+  gap: 28rpx;
+  height: 300rpx;
+  margin-top: 34rpx;
+  padding: 0 8rpx 8rpx;
 }
 
-.bar-item {
+.axis-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 42rpx;
+  height: 2rpx;
+  background: #e4e7ec;
+}
+
+.axis-mid,
+.axis-top {
+  height: 1rpx;
+  background: #edf0f4;
+}
+
+.axis-mid { bottom: 142rpx; }
+.axis-top { bottom: 242rpx; }
+
+.price-point {
+  position: relative;
+  z-index: 1;
   flex: 1;
   display: grid;
   align-items: end;
@@ -112,28 +151,42 @@
   height: 100%;
 }
 
-.bar-wrap {
-  display: flex;
-  align-items: flex-end;
-  width: 100%;
-  height: 146rpx;
+.point-value {
+  color: #1d1d1f;
+  font-size: 22rpx;
+  font-weight: 760;
 }
 
-.bar-fill {
-  width: 100%;
-  border-radius: 999rpx 999rpx 8rpx 8rpx;
-  background: linear-gradient(180deg, #0071e3, #67b7ff);
+.point-marker {
+  display: grid;
+  justify-items: center;
+  gap: 0;
 }
 
-.bar-item text {
+.point-dot {
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 999rpx;
+  background: #fff;
+  border: 6rpx solid #0071e3;
+  box-shadow: 0 8rpx 22rpx rgba(0, 113, 227, .24);
+}
+
+.point-column {
+  width: 4rpx;
+  min-height: 72rpx;
+  border-radius: 999rpx;
+  background: linear-gradient(180deg, #0071e3, rgba(0, 113, 227, .08));
+}
+
+.point-date {
   color: #8f8f95;
-  font-size: 20rpx;
+  font-size: 21rpx;
 }
 
-.trend-note {
-  display: block;
-  margin-top: 18rpx;
+.tariff-note {
+  margin-top: 22rpx;
   color: #6e6e73;
   font-size: 24rpx;
-  line-height: 1.5;
+  line-height: 1.55;
 }

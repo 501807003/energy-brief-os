@@ -158,6 +158,24 @@ const briefData = {
           "source": "国家发展改革委",
           "url": "https://www.ndrc.gov.cn/xxgk/jd/jd/202606/t20260601_1405604.html"
         }
+      ],
+      "tariff_watch": [
+        {
+          "id": "solar_tariff",
+          "label": "光伏今日电价",
+          "value": 0.368,
+          "unit": "元/千瓦时",
+          "level": "参考",
+          "note": "光伏上网和交易参考电价，自动化需每日更新。"
+        },
+        {
+          "id": "wind_tariff",
+          "label": "风电今日电价",
+          "value": 0.391,
+          "unit": "元/千瓦时",
+          "level": "参考",
+          "note": "风电上网和交易参考电价，自动化需每日更新。"
+        }
       ]
     },
     "2026-06-12": {
@@ -304,75 +322,69 @@ const briefData = {
           "source": "国家能源局派出机构",
           "url": "https://hbj.nea.gov.cn/xxgk/fdzdgknr/hbjgfl/gfxwj/202408/t20240827_268457.html"
         }
+      ],
+      "tariff_watch": [
+        {
+          "id": "solar_tariff",
+          "label": "光伏今日电价",
+          "value": 0.372,
+          "unit": "元/千瓦时",
+          "level": "参考",
+          "note": "光伏上网和交易参考电价，自动化需每日更新。"
+        },
+        {
+          "id": "wind_tariff",
+          "label": "风电今日电价",
+          "value": 0.388,
+          "unit": "元/千瓦时",
+          "level": "参考",
+          "note": "风电上网和交易参考电价，自动化需每日更新。"
+        }
       ]
     }
   },
   "priceTrend": [
     {
-      "label": "多晶硅价格",
-      "latestLevel": "关注",
-      "latestValue": 66,
+      "id": "solar_tariff",
+      "label": "光伏今日电价",
+      "unit": "元/千瓦时",
+      "latestLevel": "参考",
+      "latestValue": 0.368,
+      "note": "光伏上网和交易参考电价，自动化需每日更新。",
       "points": [
         {
           "date": "2026-06-12",
-          "value": 66,
-          "level": "关注"
+          "value": 0.372,
+          "level": "参考",
+          "note": "光伏上网和交易参考电价，自动化需每日更新。"
         },
         {
           "date": "2026-06-13",
-          "value": 66,
-          "level": "关注"
+          "value": 0.368,
+          "level": "参考",
+          "note": "光伏上网和交易参考电价，自动化需每日更新。"
         }
       ]
     },
     {
-      "label": "组件出厂价",
-      "latestLevel": "跟踪",
-      "latestValue": 61,
+      "id": "wind_tariff",
+      "label": "风电今日电价",
+      "unit": "元/千瓦时",
+      "latestLevel": "参考",
+      "latestValue": 0.391,
+      "note": "风电上网和交易参考电价，自动化需每日更新。",
       "points": [
         {
           "date": "2026-06-12",
-          "value": 58,
-          "level": "跟踪"
+          "value": 0.388,
+          "level": "参考",
+          "note": "风电上网和交易参考电价，自动化需每日更新。"
         },
         {
           "date": "2026-06-13",
-          "value": 61,
-          "level": "跟踪"
-        }
-      ]
-    },
-    {
-      "label": "输电权交易",
-      "latestLevel": "观察",
-      "latestValue": 74,
-      "points": [
-        {
-          "date": "2026-06-12",
-          "value": 82,
-          "level": "高"
-        },
-        {
-          "date": "2026-06-13",
-          "value": 74,
-          "level": "观察"
-        }
-      ]
-    },
-    {
-      "label": "储能质量监督",
-      "latestLevel": "规范",
-      "latestValue": 49,
-      "points": [
-        {
-          "date": "2026-06-12",
-          "value": 52,
-          "level": "观察"
-        },
-        {
-          "date": "2026-06-13",
-          "value": 49,
-          "level": "规范"
+          "value": 0.391,
+          "level": "参考",
+          "note": "风电上网和交易参考电价，自动化需每日更新。"
         }
       ]
     }

@@ -1,17 +1,26 @@
 const briefData = require("../../utils/issues");
 
-function buildLine(points, width = 520, height = 150) {
-  if (!points || points.length === 0) return "";
-  if (points.length === 1) {
-    const y = height - (points[0].value / 100) * height;
-    return `${width},${y.toFixed(1)}`;
-  }
+function formatPrice(value) {
+  return Number(value || 0).toFixed(3).replace(/0+$/, "").replace(/\.$/, "");
+}
 
-  return points.map((point, index) => {
-    const x = (index / (points.length - 1)) * width;
-    const y = height - (point.value / 100) * height;
-    return `${x.toFixed(1)},${y.toFixed(1)}`;
-  }).join(" ");
+function buildBars(points) {
+  if (!points || points.length === 0) return [];
+  const values = points.map((point) => Number(point.value || 0));
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const span = Math.max(max - min, 0.012);
+  return points.map((point) => {
+    const value = Number(point.value || 0);
+    const ratio = (value - min) / span;
+    return {
+      date: String(point.date || "").slice(5),
+      valueText: formatPrice(value),
+      level: point.level || "",
+      height: Math.round(72 + ratio * 120),
+      offset: Math.round((1 - ratio) * 120)
+    };
+  });
 }
 
 Page({
@@ -22,18 +31,16 @@ Page({
   onLoad() {
     const trend = (briefData.priceTrend || []).map((item) => {
       const points = item.points || [];
-      const first = points[0] ? points[0].value : item.latestValue;
-      const delta = item.latestValue - first;
+      const first = points[0] ? Number(points[0].value || 0) : Number(item.latestValue || 0);
+      const latest = Number(item.latestValue || 0);
+      const delta = latest - first;
       return {
         ...item,
-        line: buildLine(points),
-        deltaText: delta > 0 ? `+${delta}` : `${delta}`,
-        dates: points.map((point) => point.date.slice(5)).join(" / "),
-        bars: points.map((point) => ({
-          date: point.date.slice(5),
-          value: point.value,
-          height: Math.max(18, point.value * 1.35)
-        }))
+        latestValueText: formatPrice(latest),
+        deltaText: `${delta >= 0 ? "+" : ""}${delta.toFixed(3)}`,
+        directionText: delta > 0 ? "上行" : (delta < 0 ? "下行" : "持平"),
+        dates: points.map((point) => String(point.date || "").slice(5)).join(" / "),
+        bars: buildBars(points)
       };
     });
 

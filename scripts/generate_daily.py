@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 DAILY_DIR = ROOT / "daily"
-CSS_VERSION = "20260612-2"
+CSS_VERSION = "20260613-2"
 
 
 def esc(value: object) -> str:
@@ -149,50 +149,67 @@ def render_price_rows(price_watch: list[dict]) -> str:
     return "\n".join(rows)
 
 
-def build_price_trend(issues: list[dict]) -> list[dict]:
+def build_tariff_trend(issues: list[dict]) -> list[dict]:
     chronological = sorted(issues, key=lambda issue: issue.get("date", ""))
-    latest_watch = chronological[-1].get("price_watch", []) if chronological else []
-    series_count = min(4, len(latest_watch))
+    latest_tariffs = chronological[-1].get("tariff_watch", []) if chronological else []
     trend = []
-    for index in range(series_count):
-        latest_item = latest_watch[index]
+    for latest_item in latest_tariffs:
+        item_id = latest_item.get("id")
         points = []
         for issue in chronological:
-            watch = issue.get("price_watch", [])
-            if index >= len(watch):
-                continue
-            item = watch[index]
-            points.append({
-                "date": issue.get("date", ""),
-                "value": max(0, min(100, int(item.get("value", 0)))),
-                "level": item.get("level", "")
-            })
+            for tariff in issue.get("tariff_watch", []):
+                if tariff.get("id") == item_id:
+                    points.append({
+                        "date": issue.get("date", ""),
+                        "value": float(tariff.get("value", 0)),
+                        "level": tariff.get("level", ""),
+                        "note": tariff.get("note", "")
+                    })
+                    break
         trend.append({
+            "id": item_id,
             "label": latest_item.get("label", ""),
+            "unit": latest_item.get("unit", ""),
             "latest_level": latest_item.get("level", ""),
-            "latest_value": max(0, min(100, int(latest_item.get("value", 0)))),
+            "latest_value": float(latest_item.get("value", 0)),
+            "note": latest_item.get("note", ""),
             "points": points
         })
     return trend
 
 
-def sparkline_points(points: list[dict], width: int = 420, height: int = 130) -> str:
+def format_price(value: float) -> str:
+    return f"{value:.3f}".rstrip("0").rstrip(".")
+
+
+def price_line_geometry(points: list[dict], width: int = 520, height: int = 180) -> tuple[str, str, str]:
     if not points:
-        return ""
-    if len(points) == 1:
-        x = width
-        y = height - (points[0]["value"] / 100 * height)
-        return f"{x:.1f},{y:.1f}"
+        return "", "", ""
+    values = [float(point["value"]) for point in points]
+    minimum = min(values)
+    maximum = max(values)
+    padding = max((maximum - minimum) * 0.2, 0.006)
+    low = minimum - padding
+    high = maximum + padding
+    if high == low:
+        high += 0.01
+        low -= 0.01
+
     coords = []
+    circles = []
     for index, point in enumerate(points):
-        x = index / (len(points) - 1) * width
-        y = height - (point["value"] / 100 * height)
+        x = 0 if len(points) == 1 else index / (len(points) - 1) * width
+        ratio = (float(point["value"]) - low) / (high - low)
+        y = height - ratio * height
         coords.append(f"{x:.1f},{y:.1f}")
-    return " ".join(coords)
+        circles.append(f'<circle class="dot" cx="{x:.1f}" cy="{y:.1f}" r="6" />')
+
+    area = " ".join([f"0,{height}", *coords, f"{width},{height}"])
+    return " ".join(coords), area, "".join(circles)
 
 
 def render_price_trend_page(issues: list[dict]) -> str:
-    trend = build_price_trend(issues)
+    trend = build_tariff_trend(issues)
     latest = issues[0]
     cards = []
     for item in trend:
@@ -200,39 +217,50 @@ def render_price_trend_page(issues: list[dict]) -> str:
         first = points[0]["value"] if points else item["latest_value"]
         latest_value = item["latest_value"]
         delta = latest_value - first
-        delta_text = f"+{delta}" if delta > 0 else str(delta)
-        direction = "\u5347\u6e29" if delta > 0 else ("\u56de\u843d" if delta < 0 else "\u6301\u5e73")
+        delta_text = f"+{delta:.3f}" if delta > 0 else f"{delta:.3f}"
+        direction = "上行" if delta > 0 else ("下行" if delta < 0 else "持平")
+        line_points, area_points, dot_points = price_line_geometry(points)
         date_labels = "".join(f"<span>{esc(point['date'][5:])}</span>" for point in points)
+        point_labels = "".join(
+            f"<li><span>{esc(point['date'][5:])}</span><strong>{esc(format_price(point['value']))}</strong></li>"
+            for point in points
+        )
         cards.append(f"""
-      <article class="trend-card">
-        <div class="trend-head">
+      <article class="tariff-card">
+        <div class="tariff-head">
           <div>
-            <p class="section-label">{esc(TEXT["price_trend"])}</p>
+            <p class="section-label">今日电价</p>
             <h2>{esc(item["label"])}</h2>
           </div>
-          <div class="trend-score"><b>{latest_value}</b><span>{esc(item["latest_level"])}</span></div>
+          <div class="tariff-price"><b>{esc(format_price(latest_value))}</b><span>{esc(item["unit"])}</span></div>
         </div>
-        <svg class="trend-chart" viewBox="0 0 420 150" role="img" aria-label="{esc(item["label"])}趋势图">
-          <line x1="0" y1="130" x2="420" y2="130" />
-          <polyline points="{sparkline_points(points)}" />
+        <div class="tariff-meta"><span>{esc(item["latest_level"])}</span><span>较首日 {esc(delta_text)}，{esc(direction)}</span></div>
+        <svg class="tariff-chart" viewBox="0 0 520 220" role="img" aria-label="{esc(item["label"])}趋势图">
+          <line class="grid" x1="0" y1="40" x2="520" y2="40" />
+          <line class="grid" x1="0" y1="110" x2="520" y2="110" />
+          <line class="grid strong" x1="0" y1="180" x2="520" y2="180" />
+          <polygon class="area" points="{area_points}" />
+          <polyline class="line" points="{line_points}" />
+          {dot_points}
         </svg>
         <div class="trend-dates">{date_labels}</div>
-        <p class="trend-note">\u76f8\u6bd4\u9996\u4e2a\u8bb0\u5f55\u70b9\uff0c\u5f53\u524d\u6307\u6570 {esc(delta_text)}\uff0c\u72b6\u6001\u4e3a\u201c{esc(direction)}\u201d\u3002</p>
+        <ul class="tariff-points">{point_labels}</ul>
+        <p class="trend-note">{esc(item.get("note") or "该电价为每日简报维护的新能源交易参考值，后续自动化每天更新。")}</p>
       </article>""")
 
     body = f"""
   <main class="trend-page">
     <section class="trend-hero">
       <p class="eyebrow">{esc(TEXT["brand"])} / {esc(latest.get("date"))}</p>
-      <h1>{esc(TEXT["price_trend"])}</h1>
-      <p>\u7528\u6bcf\u65e5\u7b80\u62a5\u91cc\u7684\u4ef7\u683c\u89c2\u5bdf\u6307\u6570\uff0c\u8ddf\u8e2a\u5149\u4f0f\u3001\u98ce\u7535\u3001\u4ea4\u6613\u548c\u50a8\u80fd\u7b49\u65b9\u5411\u7684\u6ce2\u52a8\u3002</p>
+      <h1>新能源电价趋势</h1>
+      <p>每天固定记录光伏、风电今日参考电价，观察上网与交易价格的连续变化。</p>
     </section>
-    <section class="trend-grid">
+    <section class="tariff-grid">
 {''.join(cards)}
     </section>
   </main>
 """
-    return page_shell(f'{TEXT["brand"]} - {TEXT["price_trend"]}', body, "")
+    return page_shell(f'{TEXT["brand"]} - 新能源电价趋势', body, "")
 
 
 def render_sources(source_links: list[dict]) -> str:

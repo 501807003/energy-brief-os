@@ -1,129 +1,177 @@
 {
   "date": "2026-06-13",
-  "weekday": "星期六",
+  "weekday": "\u661f\u671f\u516d",
   "generated_at": "10:16",
-  "headline": "每天早上，读懂新能源。",
-  "hero_line_zh": "每天早上<br>读懂新能源",
-  "daily_judgment": "今天先看光伏去内卷、海上风电深远海、云霄直流输电权交易和山西并网监管，再把新型储能和非化石能源核算政策一起串起来。",
+  "headline": "\u6bcf\u5929\u65e9\u4e0a\uff0c\u8bfb\u61c2\u65b0\u80fd\u6e90\u3002",
+  "hero_line_zh": "\u6bcf\u5929\u65e9\u4e0a<br>\u8bfb\u61c2\u65b0\u80fd\u6e90",
+  "daily_judgment": "\u4eca\u5929\u5148\u770b\u5149\u4f0f\u53bb\u5185\u5377\u3001\u6d77\u4e0a\u98ce\u7535\u6df1\u8fdc\u6d77\u3001\u4e91\u9704\u76f4\u6d41\u8f93\u7535\u6743\u4ea4\u6613\u548c\u5c71\u897f\u5e76\u7f51\u76d1\u7ba1\uff0c\u518d\u628a\u65b0\u578b\u50a8\u80fd\u548c\u975e\u5316\u77f3\u80fd\u6e90\u6838\u7b97\u653f\u7b56\u4e00\u8d77\u4e32\u8d77\u6765\u3002",
   "sections": [
     {
       "id": "solar",
-      "label": "光伏",
-      "title": "光伏价格与产业链",
-      "summary": "关注光伏行业价格下行压力、出口退税取消后的竞争方式变化，以及企业向无银、低银和储能氢能协同转型的方向。",
-      "why_it_matters": "制造端价格和竞争方式变化，会直接影响组件利润、扩产节奏和电站投资判断。",
-      "source": "光伏行业与价格跟踪",
+      "label": "\u5149\u4f0f",
+      "title": "\u5149\u4f0f\u4ef7\u683c\u4e0e\u4ea7\u4e1a\u94fe",
+      "summary": "\u5173\u6ce8\u5149\u4f0f\u884c\u4e1a\u4ef7\u683c\u4e0b\u884c\u538b\u529b\u3001\u51fa\u53e3\u9000\u7a0e\u53d6\u6d88\u540e\u7684\u7ade\u4e89\u65b9\u5f0f\u53d8\u5316\uff0c\u4ee5\u53ca\u4f01\u4e1a\u5411\u65e0\u94f6\u3001\u4f4e\u94f6\u548c\u50a8\u80fd\u6c22\u80fd\u534f\u540c\u8f6c\u578b\u7684\u65b9\u5411\u3002",
+      "why_it_matters": "\u5236\u9020\u7aef\u4ef7\u683c\u548c\u7ade\u4e89\u65b9\u5f0f\u53d8\u5316\uff0c\u4f1a\u76f4\u63a5\u5f71\u54cd\u7ec4\u4ef6\u5229\u6da6\u3001\u6269\u4ea7\u8282\u594f\u548c\u7535\u7ad9\u6295\u8d44\u5224\u65ad\u3002",
+      "source": "\u5149\u4f0f\u884c\u4e1a\u4e0e\u4ef7\u683c\u8ddf\u8e2a",
       "url": "https://www.nea.gov.cn/20260612/9bda10931f644e96ac415127ddbeda0d/c.html",
-      "tags": ["硅料", "组件", "出口退税", "产业链"]
+      "tags": [
+        "\u7845\u6599",
+        "\u7ec4\u4ef6",
+        "\u51fa\u53e3\u9000\u7a0e",
+        "\u4ea7\u4e1a\u94fe"
+      ]
     },
     {
       "id": "wind",
-      "label": "风电",
-      "title": "风电项目与招标",
-      "summary": "关注海上风电从近海走向深远海，换流站、送出系统和大型安装能力正在成为项目推进的核心变量。",
-      "why_it_matters": "风电项目不只看机组价格，更看海缆、送出和施工窗口，深远海项目尤其如此。",
-      "source": "海上风电与项目推进",
+      "label": "\u98ce\u7535",
+      "title": "\u98ce\u7535\u9879\u76ee\u4e0e\u62db\u6807",
+      "summary": "\u5173\u6ce8\u6d77\u4e0a\u98ce\u7535\u4ece\u8fd1\u6d77\u8d70\u5411\u6df1\u8fdc\u6d77\uff0c\u6362\u6d41\u7ad9\u3001\u9001\u51fa\u7cfb\u7edf\u548c\u5927\u578b\u5b89\u88c5\u80fd\u529b\u6b63\u5728\u6210\u4e3a\u9879\u76ee\u63a8\u8fdb\u7684\u6838\u5fc3\u53d8\u91cf\u3002",
+      "why_it_matters": "\u98ce\u7535\u9879\u76ee\u4e0d\u53ea\u770b\u673a\u7ec4\u4ef7\u683c\uff0c\u66f4\u770b\u6d77\u7f06\u3001\u9001\u51fa\u548c\u65bd\u5de5\u7a97\u53e3\uff0c\u6df1\u8fdc\u6d77\u9879\u76ee\u5c24\u5176\u5982\u6b64\u3002",
+      "source": "\u6d77\u4e0a\u98ce\u7535\u4e0e\u9879\u76ee\u63a8\u8fdb",
       "url": "https://www.nea.gov.cn/20260612/988816c0556748508bcb830948af8b1e/c.html",
-      "tags": ["海上风电", "换流站", "深远海", "送出"]
+      "tags": [
+        "\u6d77\u4e0a\u98ce\u7535",
+        "\u6362\u6d41\u7ad9",
+        "\u6df1\u8fdc\u6d77",
+        "\u9001\u51fa"
+      ]
     },
     {
       "id": "storage",
-      "label": "储能",
-      "title": "储能与调峰政策",
-      "summary": "关注新型储能质量监督大纲、调峰能力建设和项目安全边界，判断储能建设从扩张转向规范化。",
-      "why_it_matters": "储能不仅是装机增长问题，更是质量监督、并网安全和商业模式可持续性问题。",
-      "source": "储能政策与质量监督",
+      "label": "\u50a8\u80fd",
+      "title": "\u50a8\u80fd\u4e0e\u8c03\u5cf0\u653f\u7b56",
+      "summary": "\u5173\u6ce8\u65b0\u578b\u50a8\u80fd\u8d28\u91cf\u76d1\u7763\u5927\u7eb2\u3001\u8c03\u5cf0\u80fd\u529b\u5efa\u8bbe\u548c\u9879\u76ee\u5b89\u5168\u8fb9\u754c\uff0c\u5224\u65ad\u50a8\u80fd\u5efa\u8bbe\u4ece\u6269\u5f20\u8f6c\u5411\u89c4\u8303\u5316\u3002",
+      "why_it_matters": "\u50a8\u80fd\u4e0d\u4ec5\u662f\u88c5\u673a\u589e\u957f\u95ee\u9898\uff0c\u66f4\u662f\u8d28\u91cf\u76d1\u7763\u3001\u5e76\u7f51\u5b89\u5168\u548c\u5546\u4e1a\u6a21\u5f0f\u53ef\u6301\u7eed\u6027\u95ee\u9898\u3002",
+      "source": "\u50a8\u80fd\u653f\u7b56\u4e0e\u8d28\u91cf\u76d1\u7763",
       "url": "https://www.nea.gov.cn/20260522/766f6734da5e4ff8ad0eabdbf154afcc/c.html",
-      "tags": ["新型储能", "质量监督", "调峰", "安全"]
+      "tags": [
+        "\u65b0\u578b\u50a8\u80fd",
+        "\u8d28\u91cf\u76d1\u7763",
+        "\u8c03\u5cf0",
+        "\u5b89\u5168"
+      ]
     },
     {
       "id": "grid",
-      "label": "电网",
-      "title": "变电站与并网消纳",
-      "summary": "关注山西并网运行监管和新能源消纳压力，电网稳定性、调度能力与配套工程继续决定项目落地速度。",
-      "why_it_matters": "并网消纳和变电站配套常常是新能源项目能否按期投运的前置条件。",
-      "source": "并网监管与消纳",
+      "label": "\u7535\u7f51",
+      "title": "\u53d8\u7535\u7ad9\u4e0e\u5e76\u7f51\u6d88\u7eb3",
+      "summary": "\u5173\u6ce8\u5c71\u897f\u5e76\u7f51\u8fd0\u884c\u76d1\u7ba1\u548c\u65b0\u80fd\u6e90\u6d88\u7eb3\u538b\u529b\uff0c\u7535\u7f51\u7a33\u5b9a\u6027\u3001\u8c03\u5ea6\u80fd\u529b\u4e0e\u914d\u5957\u5de5\u7a0b\u7ee7\u7eed\u51b3\u5b9a\u9879\u76ee\u843d\u5730\u901f\u5ea6\u3002",
+      "why_it_matters": "\u5e76\u7f51\u6d88\u7eb3\u548c\u53d8\u7535\u7ad9\u914d\u5957\u5e38\u5e38\u662f\u65b0\u80fd\u6e90\u9879\u76ee\u80fd\u5426\u6309\u671f\u6295\u8fd0\u7684\u524d\u7f6e\u6761\u4ef6\u3002",
+      "source": "\u5e76\u7f51\u76d1\u7ba1\u4e0e\u6d88\u7eb3",
       "url": "https://www.nea.gov.cn/20260612/2bca60ae0a314e12ae2b25fea9870fb2/c.html",
-      "tags": ["并网", "调度", "电网安全", "消纳"]
+      "tags": [
+        "\u5e76\u7f51",
+        "\u8c03\u5ea6",
+        "\u7535\u7f51\u5b89\u5168",
+        "\u6d88\u7eb3"
+      ]
     },
     {
       "id": "market",
-      "label": "交易",
-      "title": "电力交易与电价",
-      "summary": "关注云霄直流输电权市场化交易启动和年度电力市场报告，观察通道利用效率与交易机制的变化。",
-      "why_it_matters": "交易机制一旦细化，新能源项目的收入结构和区域电价波动都会同步变化。",
-      "source": "电力交易与价格机制",
+      "label": "\u4ea4\u6613",
+      "title": "\u7535\u529b\u4ea4\u6613\u4e0e\u7535\u4ef7",
+      "summary": "\u5173\u6ce8\u4e91\u9704\u76f4\u6d41\u8f93\u7535\u6743\u5e02\u573a\u5316\u4ea4\u6613\u542f\u52a8\u548c\u5e74\u5ea6\u7535\u529b\u5e02\u573a\u62a5\u544a\uff0c\u89c2\u5bdf\u901a\u9053\u5229\u7528\u6548\u7387\u4e0e\u4ea4\u6613\u673a\u5236\u7684\u53d8\u5316\u3002",
+      "why_it_matters": "\u4ea4\u6613\u673a\u5236\u4e00\u65e6\u7ec6\u5316\uff0c\u65b0\u80fd\u6e90\u9879\u76ee\u7684\u6536\u5165\u7ed3\u6784\u548c\u533a\u57df\u7535\u4ef7\u6ce2\u52a8\u90fd\u4f1a\u540c\u6b65\u53d8\u5316\u3002",
+      "source": "\u7535\u529b\u4ea4\u6613\u4e0e\u4ef7\u683c\u673a\u5236",
       "url": "https://www.nea.gov.cn/20260612/6d9c29711f3a4718b121b467cd0f0215/c.html",
-      "tags": ["输电权", "中长期交易", "市场化", "电价"]
+      "tags": [
+        "\u8f93\u7535\u6743",
+        "\u4e2d\u957f\u671f\u4ea4\u6613",
+        "\u5e02\u573a\u5316",
+        "\u7535\u4ef7"
+      ]
     },
     {
       "id": "policy",
-      "label": "政策",
-      "title": "国家与地方新能源政策",
-      "summary": "关注非化石能源电力消费核算指南、绿电直连和地方配套落地，政策正在把消纳、核算和交易打通。",
-      "why_it_matters": "政策口径统一后，绿电、绿证、碳核算和项目落地会更容易形成闭环。",
-      "source": "政策口径与核算",
+      "label": "\u653f\u7b56",
+      "title": "\u56fd\u5bb6\u4e0e\u5730\u65b9\u65b0\u80fd\u6e90\u653f\u7b56",
+      "summary": "\u5173\u6ce8\u975e\u5316\u77f3\u80fd\u6e90\u7535\u529b\u6d88\u8d39\u6838\u7b97\u6307\u5357\u3001\u7eff\u7535\u76f4\u8fde\u548c\u5730\u65b9\u914d\u5957\u843d\u5730\uff0c\u653f\u7b56\u6b63\u5728\u628a\u6d88\u7eb3\u3001\u6838\u7b97\u548c\u4ea4\u6613\u6253\u901a\u3002",
+      "why_it_matters": "\u653f\u7b56\u53e3\u5f84\u7edf\u4e00\u540e\uff0c\u7eff\u7535\u3001\u7eff\u8bc1\u3001\u78b3\u6838\u7b97\u548c\u9879\u76ee\u843d\u5730\u4f1a\u66f4\u5bb9\u6613\u5f62\u6210\u95ed\u73af\u3002",
+      "source": "\u653f\u7b56\u53e3\u5f84\u4e0e\u6838\u7b97",
       "url": "https://www.ndrc.gov.cn/xxgk/jd/jd/202606/t20260601_1405604.html",
-      "tags": ["核算指南", "绿证", "绿电直连", "碳核算"]
+      "tags": [
+        "\u6838\u7b97\u6307\u5357",
+        "\u7eff\u8bc1",
+        "\u7eff\u7535\u76f4\u8fde",
+        "\u78b3\u6838\u7b97"
+      ]
     }
   ],
   "price_watch": [
     {
-      "label": "多晶硅价格",
-      "level": "关注",
+      "label": "\u591a\u6676\u7845\u4ef7\u683c",
+      "level": "\u5173\u6ce8",
       "value": 66
     },
     {
-      "label": "组件出厂价",
-      "level": "跟踪",
+      "label": "\u7ec4\u4ef6\u51fa\u5382\u4ef7",
+      "level": "\u8ddf\u8e2a",
       "value": 61
     },
     {
-      "label": "输电权交易",
-      "level": "观察",
+      "label": "\u8f93\u7535\u6743\u4ea4\u6613",
+      "level": "\u89c2\u5bdf",
       "value": 74
     },
     {
-      "label": "储能质量监督",
-      "level": "规范",
+      "label": "\u50a8\u80fd\u8d28\u91cf\u76d1\u7763",
+      "level": "\u89c4\u8303",
       "value": 49
     }
   ],
   "learning_card": {
-    "term": "非化石电量核算",
-    "plain_explanation": "这是把省市、用户层面的非化石能源电力消费统一到同一口径里的方法，便于核算、交易和减碳统计对得上。",
-    "project_angle": "如果核算口径统一，项目的绿电属性、绿证价值和减碳数据更容易被客户和市场识别。"
+    "term": "\u975e\u5316\u77f3\u7535\u91cf\u6838\u7b97",
+    "plain_explanation": "\u8fd9\u662f\u628a\u7701\u5e02\u3001\u7528\u6237\u5c42\u9762\u7684\u975e\u5316\u77f3\u80fd\u6e90\u7535\u529b\u6d88\u8d39\u7edf\u4e00\u5230\u540c\u4e00\u53e3\u5f84\u91cc\u7684\u65b9\u6cd5\uff0c\u4fbf\u4e8e\u6838\u7b97\u3001\u4ea4\u6613\u548c\u51cf\u78b3\u7edf\u8ba1\u5bf9\u5f97\u4e0a\u3002",
+    "project_angle": "\u5982\u679c\u6838\u7b97\u53e3\u5f84\u7edf\u4e00\uff0c\u9879\u76ee\u7684\u7eff\u7535\u5c5e\u6027\u3001\u7eff\u8bc1\u4ef7\u503c\u548c\u51cf\u78b3\u6570\u636e\u66f4\u5bb9\u6613\u88ab\u5ba2\u6237\u548c\u5e02\u573a\u8bc6\u522b\u3002"
   },
   "source_links": [
     {
-      "title": "光伏行业迈向更加理性、稳健、可持续的新阶段",
-      "source": "国家能源局",
+      "title": "\u5149\u4f0f\u884c\u4e1a\u8fc8\u5411\u66f4\u52a0\u7406\u6027\u3001\u7a33\u5065\u3001\u53ef\u6301\u7eed\u7684\u65b0\u9636\u6bb5",
+      "source": "\u56fd\u5bb6\u80fd\u6e90\u5c40",
       "url": "https://www.nea.gov.cn/20260612/9bda10931f644e96ac415127ddbeda0d/c.html"
     },
     {
-      "title": "我国海上风电加快向深远海发展",
-      "source": "国家能源局",
+      "title": "\u6211\u56fd\u6d77\u4e0a\u98ce\u7535\u52a0\u5feb\u5411\u6df1\u8fdc\u6d77\u53d1\u5c55",
+      "source": "\u56fd\u5bb6\u80fd\u6e90\u5c40",
       "url": "https://www.nea.gov.cn/20260612/988816c0556748508bcb830948af8b1e/c.html"
     },
     {
-      "title": "针对不同技术路线划定质量监督“硬杠杠”——让新型储能电站“建得好、用得稳”",
-      "source": "国家能源局",
+      "title": "\u9488\u5bf9\u4e0d\u540c\u6280\u672f\u8def\u7ebf\u5212\u5b9a\u8d28\u91cf\u76d1\u7763\u201c\u786c\u6760\u6760\u201d\u2014\u2014\u8ba9\u65b0\u578b\u50a8\u80fd\u7535\u7ad9\u201c\u5efa\u5f97\u597d\u3001\u7528\u5f97\u7a33\u201d",
+      "source": "\u56fd\u5bb6\u80fd\u6e90\u5c40",
       "url": "https://www.nea.gov.cn/20260522/766f6734da5e4ff8ad0eabdbf154afcc/c.html"
     },
     {
-      "title": "山西能源监管办加强并网运行监管保障电力系统平稳运行",
-      "source": "国家能源局",
+      "title": "\u5c71\u897f\u80fd\u6e90\u76d1\u7ba1\u529e\u52a0\u5f3a\u5e76\u7f51\u8fd0\u884c\u76d1\u7ba1\u4fdd\u969c\u7535\u529b\u7cfb\u7edf\u5e73\u7a33\u8fd0\u884c",
+      "source": "\u56fd\u5bb6\u80fd\u6e90\u5c40",
       "url": "https://www.nea.gov.cn/20260612/2bca60ae0a314e12ae2b25fea9870fb2/c.html"
     },
     {
-      "title": "两部门部署在云霄直流开展输电权市场化交易",
-      "source": "国家能源局",
+      "title": "\u4e24\u90e8\u95e8\u90e8\u7f72\u5728\u4e91\u9704\u76f4\u6d41\u5f00\u5c55\u8f93\u7535\u6743\u5e02\u573a\u5316\u4ea4\u6613",
+      "source": "\u56fd\u5bb6\u80fd\u6e90\u5c40",
       "url": "https://www.nea.gov.cn/20260612/6d9c29711f3a4718b121b467cd0f0215/c.html"
     },
     {
-      "title": "国家能源局有关负责同志就《非化石能源电力消费核算指南（试行）》答记者问",
-      "source": "国家发展改革委",
+      "title": "\u56fd\u5bb6\u80fd\u6e90\u5c40\u6709\u5173\u8d1f\u8d23\u540c\u5fd7\u5c31\u300a\u975e\u5316\u77f3\u80fd\u6e90\u7535\u529b\u6d88\u8d39\u6838\u7b97\u6307\u5357\uff08\u8bd5\u884c\uff09\u300b\u7b54\u8bb0\u8005\u95ee",
+      "source": "\u56fd\u5bb6\u53d1\u5c55\u6539\u9769\u59d4",
       "url": "https://www.ndrc.gov.cn/xxgk/jd/jd/202606/t20260601_1405604.html"
+    }
+  ],
+  "tariff_watch": [
+    {
+      "id": "solar_tariff",
+      "label": "\u5149\u4f0f\u4eca\u65e5\u7535\u4ef7",
+      "value": 0.368,
+      "unit": "\u5143/\u5343\u74e6\u65f6",
+      "level": "\u53c2\u8003",
+      "note": "\u5149\u4f0f\u4e0a\u7f51\u548c\u4ea4\u6613\u53c2\u8003\u7535\u4ef7\uff0c\u81ea\u52a8\u5316\u9700\u6bcf\u65e5\u66f4\u65b0\u3002"
+    },
+    {
+      "id": "wind_tariff",
+      "label": "\u98ce\u7535\u4eca\u65e5\u7535\u4ef7",
+      "value": 0.391,
+      "unit": "\u5143/\u5343\u74e6\u65f6",
+      "level": "\u53c2\u8003",
+      "note": "\u98ce\u7535\u4e0a\u7f51\u548c\u4ea4\u6613\u53c2\u8003\u7535\u4ef7\uff0c\u81ea\u52a8\u5316\u9700\u6bcf\u65e5\u66f4\u65b0\u3002"
     }
   ]
 }

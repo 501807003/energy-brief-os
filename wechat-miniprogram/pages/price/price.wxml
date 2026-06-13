@@ -1,31 +1,43 @@
 <view class="page price-page">
   <view class="price-hero">
-    <text class="kicker">价格观察</text>
-    <text class="title">看见波动，才好判断方向。</text>
-    <text class="copy">这里用每日简报里的价格观察指数，跟踪新能源关键价格和政策信号。</text>
+    <text class="kicker">新能源电价</text>
+    <text class="title">每天看清光伏、风电卖多少钱。</text>
+    <text class="copy">这里固定记录光伏和风电今日参考电价，单位为元/千瓦时；其他价格信号随日报补充。</text>
   </view>
 
-  <view class="trend-list">
-    <view class="trend-card" wx:for="{{trend}}" wx:key="label">
-      <view class="trend-head">
+  <view class="tariff-list">
+    <view class="tariff-card" wx:for="{{trend}}" wx:key="id">
+      <view class="tariff-head">
         <view>
-          <text class="trend-label">{{item.label}}</text>
-          <text class="trend-dates">{{item.dates}}</text>
+          <text class="tariff-label">{{item.label}}</text>
+          <text class="tariff-dates">{{item.dates}}</text>
         </view>
-        <view class="score">
-          <text>{{item.latestValue}}</text>
-          <text>{{item.latestLevel}}</text>
+        <view class="tariff-value">
+          <text>{{item.latestValueText}}</text>
+          <text>{{item.unit}}</text>
         </view>
       </view>
-      <view class="bar-chart">
-        <view class="bar-item" wx:for="{{item.bars}}" wx:for-item="point" wx:key="date">
-          <view class="bar-wrap">
-            <view class="bar-fill" style="height: {{point.height}}rpx;"></view>
+
+      <view class="tariff-change">
+        <text>{{item.latestLevel}}</text>
+        <text>较首日 {{item.deltaText}}，{{item.directionText}}</text>
+      </view>
+
+      <view class="tariff-chart">
+        <view class="axis-line"></view>
+        <view class="axis-line axis-mid"></view>
+        <view class="axis-line axis-top"></view>
+        <view class="price-point" wx:for="{{item.bars}}" wx:for-item="point" wx:key="date">
+          <text class="point-value">{{point.valueText}}</text>
+          <view class="point-marker" style="margin-top: {{point.offset}}rpx;">
+            <view class="point-dot"></view>
+            <view class="point-column" style="height: {{point.height}}rpx;"></view>
           </view>
-          <text>{{point.date}}</text>
+          <text class="point-date">{{point.date}}</text>
         </view>
       </view>
-      <text class="trend-note">较首个记录点 {{item.deltaText}}，用于观察趋势变化，不等同于精确报价。</text>
+
+      <text class="tariff-note">{{item.note}}</text>
     </view>
   </view>
 </view>

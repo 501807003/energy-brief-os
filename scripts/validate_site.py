@@ -10,6 +10,7 @@ DAILY_DIR = ROOT / "daily"
 MINIPROGRAM_DATA = ROOT / "wechat-miniprogram" / "utils" / "issues.js"
 
 REQUIRED_SECTION_IDS = {"solar", "wind", "storage", "grid", "market", "policy"}
+REQUIRED_TARIFF_IDS = {"solar_tariff", "wind_tariff"}
 BAD_TEXT_MARKERS = ["\ufffd", "\u93c2", "\u59e3", "\u951b", "\u9286"]
 OLD_ENGLISH_COPY = "Track three lines first today"
 HERO_TITLE = "\u6bcf\u5929\u65e9\u4e0a<br>\u8bfb\u61c2\u65b0\u80fd\u6e90"
@@ -54,6 +55,20 @@ def validate_issue(issue: dict) -> None:
 
     if len(issue.get("price_watch", [])) < 4:
         fail("price_watch must contain at least 4 items")
+
+    tariff_watch = issue.get("tariff_watch", [])
+    tariff_ids = {item.get("id") for item in tariff_watch}
+    if tariff_ids != REQUIRED_TARIFF_IDS:
+        fail(f"tariff_watch must contain {sorted(REQUIRED_TARIFF_IDS)}, got {sorted(tariff_ids)}")
+    for item in tariff_watch:
+        if item.get("unit") != "元/千瓦时":
+            fail(f"tariff {item.get('id')} unit must be 元/千瓦时")
+        try:
+            value = float(item.get("value"))
+        except (TypeError, ValueError):
+            fail(f"tariff {item.get('id')} value must be numeric")
+        if value <= 0:
+            fail(f"tariff {item.get('id')} value must be greater than 0")
 
     if not issue.get("source_links"):
         fail("source_links must not be empty")
@@ -107,8 +122,8 @@ def validate_html(issue: dict) -> None:
         fail("daily page must render source action buttons")
     if f'daily/{issue_date}.html' not in archive_html:
         fail("archive does not link to latest daily page")
-    if "trend-card" not in price_html:
-        fail("price.html does not render trend cards")
+    if "tariff-card" not in price_html or "新能源电价趋势" not in price_html:
+        fail("price.html does not render tariff trend cards")
 
     miniprogram_data = read_text(MINIPROGRAM_DATA)
     if issue_date not in miniprogram_data:

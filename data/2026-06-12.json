@@ -14,7 +14,12 @@
       "why_it_matters": "\u4ea7\u4e1a\u94fe\u4ef7\u683c\u548c\u9879\u76ee\u7c7b\u578b\u51b3\u5b9a\u5149\u4f0f\u7535\u7ad9\u7684\u6295\u8d44\u6536\u76ca\u548c\u5efa\u8bbe\u8282\u594f\u3002",
       "source": "\u5149\u4f0f\u884c\u4e1a\u548c\u4ef7\u683c\u8ddf\u8e2a",
       "url": "https://www.nea.gov.cn/20260612/9bda10931f644e96ac415127ddbeda0d/c.html",
-      "tags": ["\u7845\u6599", "\u7ec4\u4ef6", "\u5206\u5e03\u5f0f", "\u7535\u7ad9"]
+      "tags": [
+        "\u7845\u6599",
+        "\u7ec4\u4ef6",
+        "\u5206\u5e03\u5f0f",
+        "\u7535\u7ad9"
+      ]
     },
     {
       "id": "wind",
@@ -24,7 +29,12 @@
       "why_it_matters": "\u98ce\u7535\u9879\u76ee\u5468\u671f\u957f\uff0c\u62db\u6807\u4e0e\u5e76\u7f51\u8282\u70b9\u4f1a\u63d0\u524d\u53cd\u6620\u533a\u57df\u5f00\u53d1\u70ed\u5ea6\u3002",
       "source": "\u98ce\u7535\u9879\u76ee\u548c\u62db\u6807\u8ddf\u8e2a",
       "url": "https://www.nea.gov.cn/20260612/988816c0556748508bcb830948af8b1e/c.html",
-      "tags": ["\u9646\u98ce", "\u6d77\u98ce", "\u62db\u6807", "\u5e76\u7f51"]
+      "tags": [
+        "\u9646\u98ce",
+        "\u6d77\u98ce",
+        "\u62db\u6807",
+        "\u5e76\u7f51"
+      ]
     },
     {
       "id": "storage",
@@ -34,7 +44,11 @@
       "why_it_matters": "\u50a8\u80fd\u662f\u65b0\u80fd\u6e90\u6d88\u7eb3\u7684\u5173\u952e\u914d\u5957\uff0c\u653f\u7b56\u548c\u8865\u507f\u673a\u5236\u4f1a\u5f71\u54cd\u5546\u4e1a\u6a21\u5f0f\u3002",
       "source": "\u50a8\u80fd\u653f\u7b56\u548c\u5e02\u573a\u8ddf\u8e2a",
       "url": "https://www.nea.gov.cn/20260514/ded62aeb85294f51ab9597405dcd3449/c.html",
-      "tags": ["\u72ec\u7acb\u50a8\u80fd", "\u8c03\u5cf0", "\u8f85\u52a9\u670d\u52a1"]
+      "tags": [
+        "\u72ec\u7acb\u50a8\u80fd",
+        "\u8c03\u5cf0",
+        "\u8f85\u52a9\u670d\u52a1"
+      ]
     },
     {
       "id": "grid",
@@ -44,7 +58,11 @@
       "why_it_matters": "\u5149\u4f0f\u548c\u98ce\u7535\u80fd\u5426\u6309\u671f\u6295\u8fd0\uff0c\u5f88\u591a\u65f6\u5019\u53d6\u51b3\u4e8e\u9001\u51fa\u548c\u53d8\u7535\u7ad9\u914d\u5957\u3002",
       "source": "\u7535\u7f51\u63a5\u5165\u548c\u6d88\u7eb3\u8ddf\u8e2a",
       "url": "https://sxb.nea.gov.cn/dtyw/jgdt/202606/t20260609_302742.html",
-      "tags": ["\u53d8\u7535\u7ad9", "\u9001\u51fa\u5de5\u7a0b", "\u6d88\u7eb3"]
+      "tags": [
+        "\u53d8\u7535\u7ad9",
+        "\u9001\u51fa\u5de5\u7a0b",
+        "\u6d88\u7eb3"
+      ]
     },
     {
       "id": "market",
@@ -54,7 +72,12 @@
       "why_it_matters": "\u7535\u529b\u4ea4\u6613\u51b3\u5b9a\u65b0\u80fd\u6e90\u9879\u76ee\u6700\u7ec8\u6536\u5165\u53e3\u5f84\uff0c\u4f46\u9700\u8981\u4e0e\u9879\u76ee\u548c\u7535\u7f51\u4fe1\u606f\u4e00\u8d77\u770b\u3002",
       "source": "\u7535\u529b\u4ea4\u6613\u548c\u7535\u4ef7\u8ddf\u8e2a",
       "url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/202502/t20250209_1396066.html",
-      "tags": ["\u673a\u5236\u7535\u4ef7", "\u7eff\u7535", "\u7eff\u8bc1", "\u73b0\u8d27"]
+      "tags": [
+        "\u673a\u5236\u7535\u4ef7",
+        "\u7eff\u7535",
+        "\u7eff\u8bc1",
+        "\u73b0\u8d27"
+      ]
     },
     {
       "id": "policy",
@@ -64,14 +87,34 @@
       "why_it_matters": "\u653f\u7b56\u5f80\u5f80\u51b3\u5b9a\u5f00\u53d1\u8fb9\u754c\u3001\u5e76\u7f51\u8282\u594f\u548c\u6536\u76ca\u673a\u5236\uff0c\u9700\u8981\u6301\u7eed\u8ddf\u8e2a\u3002",
       "source": "\u5b98\u65b9\u653f\u7b56\u8ddf\u8e2a",
       "url": "https://www.nea.gov.cn/20260612/6889aba14afe435a9bf27825f0d4e993/c.html",
-      "tags": ["\u56fd\u5bb6\u80fd\u6e90\u5c40", "\u53d1\u6539\u59d4", "\u5730\u65b9\u653f\u7b56"]
+      "tags": [
+        "\u56fd\u5bb6\u80fd\u6e90\u5c40",
+        "\u53d1\u6539\u59d4",
+        "\u5730\u65b9\u653f\u7b56"
+      ]
     }
   ],
   "price_watch": [
-    { "label": "\u7ec4\u4ef6\u4ef7\u683c", "level": "\u5173\u6ce8", "value": 66 },
-    { "label": "\u98ce\u7535\u4e2d\u6807\u4ef7", "level": "\u8ddf\u8e2a", "value": 58 },
-    { "label": "\u673a\u5236\u7535\u4ef7", "level": "\u9ad8", "value": 82 },
-    { "label": "\u50a8\u80fd\u8865\u507f", "level": "\u89c2\u5bdf", "value": 52 }
+    {
+      "label": "\u7ec4\u4ef6\u4ef7\u683c",
+      "level": "\u5173\u6ce8",
+      "value": 66
+    },
+    {
+      "label": "\u98ce\u7535\u4e2d\u6807\u4ef7",
+      "level": "\u8ddf\u8e2a",
+      "value": 58
+    },
+    {
+      "label": "\u673a\u5236\u7535\u4ef7",
+      "level": "\u9ad8",
+      "value": 82
+    },
+    {
+      "label": "\u50a8\u80fd\u8865\u507f",
+      "level": "\u89c2\u5bdf",
+      "value": 52
+    }
   ],
   "learning_card": {
     "term": "\u6d88\u7eb3",
@@ -98,6 +141,24 @@
       "title": "\u7535\u529b\u4e2d\u957f\u671f\u4ea4\u6613\u57fa\u672c\u89c4\u5219-\u7eff\u8272\u7535\u529b\u4ea4\u6613\u4e13\u7ae0",
       "source": "\u56fd\u5bb6\u80fd\u6e90\u5c40\u6d3e\u51fa\u673a\u6784",
       "url": "https://hbj.nea.gov.cn/xxgk/fdzdgknr/hbjgfl/gfxwj/202408/t20240827_268457.html"
+    }
+  ],
+  "tariff_watch": [
+    {
+      "id": "solar_tariff",
+      "label": "\u5149\u4f0f\u4eca\u65e5\u7535\u4ef7",
+      "value": 0.372,
+      "unit": "\u5143/\u5343\u74e6\u65f6",
+      "level": "\u53c2\u8003",
+      "note": "\u5149\u4f0f\u4e0a\u7f51\u548c\u4ea4\u6613\u53c2\u8003\u7535\u4ef7\uff0c\u81ea\u52a8\u5316\u9700\u6bcf\u65e5\u66f4\u65b0\u3002"
+    },
+    {
+      "id": "wind_tariff",
+      "label": "\u98ce\u7535\u4eca\u65e5\u7535\u4ef7",
+      "value": 0.388,
+      "unit": "\u5143/\u5343\u74e6\u65f6",
+      "level": "\u53c2\u8003",
+      "note": "\u98ce\u7535\u4e0a\u7f51\u548c\u4ea4\u6613\u53c2\u8003\u7535\u4ef7\uff0c\u81ea\u52a8\u5316\u9700\u6bcf\u65e5\u66f4\u65b0\u3002"
     }
   ]
 }

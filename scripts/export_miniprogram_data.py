@@ -19,28 +19,31 @@ def load_issues() -> list[dict]:
 
 def build_price_trend(issues: list[dict]) -> list[dict]:
     chronological = sorted(issues, key=lambda issue: issue.get("date", ""))
-    latest_watch = chronological[-1].get("price_watch", []) if chronological else []
-    series_count = min(4, len(latest_watch))
+    latest_tariffs = chronological[-1].get("tariff_watch", []) if chronological else []
     trend = []
 
-    for index in range(series_count):
-        latest_item = latest_watch[index]
+    for latest_item in latest_tariffs:
+        item_id = latest_item.get("id")
         points = []
         for issue in chronological:
-            watch = issue.get("price_watch", [])
-            if index >= len(watch):
-                continue
-            item = watch[index]
-            points.append({
-                "date": issue.get("date", ""),
-                "value": max(0, min(100, int(item.get("value", 0)))),
-                "level": item.get("level", "")
-            })
+            for tariff in issue.get("tariff_watch", []):
+                if tariff.get("id") == item_id:
+                    points.append({
+                        "date": issue.get("date", ""),
+                        "value": float(tariff.get("value", 0)),
+                        "level": tariff.get("level", ""),
+                        "note": tariff.get("note", ""),
+                    })
+                    break
+
         trend.append({
+            "id": item_id,
             "label": latest_item.get("label", ""),
+            "unit": latest_item.get("unit", ""),
             "latestLevel": latest_item.get("level", ""),
-            "latestValue": max(0, min(100, int(latest_item.get("value", 0)))),
-            "points": points
+            "latestValue": float(latest_item.get("value", 0)),
+            "note": latest_item.get("note", ""),
+            "points": points,
         })
 
     return trend
