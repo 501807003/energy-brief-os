@@ -55,23 +55,29 @@
   box-shadow: 0 24rpx 70rpx rgba(0, 0, 0, .07);
 }
 
-.issue-section-list {
-  display: grid;
-  gap: 18rpx;
-  margin-top: 18rpx;
+.issue-section-scroll {
+  width: calc(100% + 44rpx);
+  margin-top: 28rpx;
   margin-left: -22rpx;
-  margin-right: -22rpx;
+  white-space: nowrap;
+}
+
+.issue-section-track {
+  display: inline-flex;
+  gap: 20rpx;
+  padding: 0 22rpx 12rpx;
 }
 
 .issue-section-card {
-  display: block;
-  width: 100%;
-  padding: 32rpx 22rpx;
-  border-radius: 0;
-  border-bottom: 1rpx solid rgba(0, 0, 0, .08);
-  background: transparent;
+  display: flex;
+  flex-direction: column;
+  width: 520rpx;
+  min-height: 430rpx;
+  padding: 32rpx;
+  border-radius: 34rpx;
+  background: rgba(255, 255, 255, .96);
   text-align: left;
-  box-shadow: none;
+  box-shadow: 0 22rpx 60rpx rgba(0, 0, 0, .075);
 }
 
 .issue-section-head {
@@ -126,10 +132,11 @@
 }
 
 .issue-title {
-  margin-top: 20rpx;
-  font-size: 35rpx;
+  margin-top: 30rpx;
+  font-size: 36rpx;
   font-weight: 820;
   line-height: 1.28;
+  white-space: normal;
 }
 
 .issue-summary {
@@ -137,6 +144,7 @@
   color: #33363d;
   font-size: 28rpx;
   line-height: 1.5;
+  white-space: normal;
 }
 
 .source-inline {
@@ -144,10 +152,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 18rpx;
-  margin-top: 22rpx;
+  margin-top: auto;
+  padding-top: 24rpx;
   color: #6e6e73;
   font-size: 23rpx;
   font-weight: 650;
+  white-space: normal;
 }
 
 .source-inline text:last-child {
@@ -186,6 +196,7 @@
 }
 
 .compact-tags {
+  margin-bottom: 26rpx;
   max-height: 54rpx;
   overflow: hidden;
 }
