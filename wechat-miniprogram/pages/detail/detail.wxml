@@ -15,7 +15,7 @@
       bindtap="openSection"
     >
       <view class="issue-section-head">
-        <view>
+        <view class="issue-section-meta">
           <text class="issue-index">{{index + 1 < 10 ? '0' + (index + 1) : index + 1}}</text>
           <text class="issue-label">{{item.label}}</text>
         </view>
@@ -23,7 +23,7 @@
       </view>
       <text class="issue-title">{{item.title}}</text>
       <text class="issue-summary">{{item.summary}}</text>
-      <view class="tags">
+      <view class="tags compact-tags">
         <text class="tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
       </view>
       <view class="source-inline" catchtap="copyIssueSource" data-url="{{item.url}}">
