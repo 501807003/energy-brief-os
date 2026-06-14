@@ -6,9 +6,13 @@ function formatPrice(value) {
 
 const CHART_WIDTH = 580;
 const CHART_HEIGHT = 220;
+const CHART_PADDING = 56;
+const POINT_GAP = 92;
 
 function buildLineChart(points) {
-  if (!points || points.length === 0) return { points: [], segments: [] };
+  if (!points || points.length === 0) return { width: CHART_WIDTH, scrollable: false, points: [], segments: [] };
+  const chartWidth = Math.max(CHART_WIDTH, ((points.length - 1) * POINT_GAP) + (CHART_PADDING * 2));
+  const plotWidth = chartWidth - (CHART_PADDING * 2);
   const values = points.map((point) => Number(point.value || 0));
   const min = Math.min(...values);
   const max = Math.max(...values);
@@ -20,7 +24,7 @@ function buildLineChart(points) {
       date: String(point.date || "").slice(5),
       valueText: formatPrice(value),
       level: point.level || "",
-      left: points.length === 1 ? CHART_WIDTH / 2 : Math.round((index / (points.length - 1)) * CHART_WIDTH),
+      left: points.length === 1 ? Math.round(chartWidth / 2) : Math.round(CHART_PADDING + ((index / (points.length - 1)) * plotWidth)),
       bottom: Math.round(34 + ratio * (CHART_HEIGHT - 68))
     };
   });
@@ -39,7 +43,7 @@ function buildLineChart(points) {
     };
   });
 
-  return { points: chartPoints, segments };
+  return { width: chartWidth, scrollable: chartWidth > CHART_WIDTH, points: chartPoints, segments };
 }
 
 function buildTrend(rawTrend, rangeDays) {

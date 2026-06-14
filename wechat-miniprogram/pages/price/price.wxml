@@ -33,29 +33,32 @@
         <text>{{item.rangeText}} / {{item.deltaText}}，{{item.directionText}}</text>
       </view>
 
-      <view class="line-chart">
-        <view class="axis-line"></view>
-        <view class="axis-line axis-mid"></view>
-        <view class="axis-line axis-top"></view>
-        <view
-          class="line-segment"
-          wx:for="{{item.chart.segments}}"
-          wx:for-item="segment"
-          wx:key="left"
-          style="left: {{segment.left}}rpx; bottom: {{segment.bottom}}rpx; width: {{segment.width}}rpx; transform: rotate({{segment.angle}}deg);"
-        ></view>
-        <view
-          class="line-point"
-          wx:for="{{item.chart.points}}"
-          wx:for-item="point"
-          wx:key="date"
-          style="left: {{point.left}}rpx; bottom: {{point.bottom}}rpx;"
-        >
-          <text class="point-value">{{point.valueText}}</text>
-          <view class="point-dot"></view>
-          <text class="point-date">{{point.date}}</text>
+      <scroll-view class="chart-scroll" scroll-x="true" enhanced="true" show-scrollbar="false">
+        <view class="line-chart" style="width: {{item.chart.width}}rpx;">
+          <view class="axis-line"></view>
+          <view class="axis-line axis-mid"></view>
+          <view class="axis-line axis-top"></view>
+          <view
+            class="line-segment"
+            wx:for="{{item.chart.segments}}"
+            wx:for-item="segment"
+            wx:key="left"
+            style="left: {{segment.left}}rpx; bottom: {{segment.bottom}}rpx; width: {{segment.width}}rpx; transform: rotate({{segment.angle}}deg);"
+          ></view>
+          <view
+            class="line-point"
+            wx:for="{{item.chart.points}}"
+            wx:for-item="point"
+            wx:key="date"
+            style="left: {{point.left}}rpx; bottom: {{point.bottom}}rpx;"
+          >
+            <text class="point-value">{{point.valueText}}</text>
+            <view class="point-dot"></view>
+            <text class="point-date">{{point.date}}</text>
+          </view>
         </view>
-      </view>
+      </scroll-view>
+      <text class="chart-hint" wx:if="{{item.chart.scrollable}}">左右滑动查看完整趋势</text>
 
       <text class="tariff-note">{{item.note}}</text>
     </view>
