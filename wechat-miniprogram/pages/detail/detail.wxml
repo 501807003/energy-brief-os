@@ -1,4 +1,55 @@
-<view class="page detail" wx:if="{{section}}">
+<view class="page detail issue-detail" wx:if="{{isIssueMode && issue}}">
+  <view class="issue-hero">
+    <text class="rank">完整日报</text>
+    <text class="meta">{{issue.date}} / {{issue.weekday}}</text>
+    <text class="title">当天 6 条新能源资讯</text>
+    <text class="summary">{{issue.daily_judgment}}</text>
+  </view>
+
+  <view class="issue-section-list">
+    <button
+      class="issue-section-card"
+      wx:for="{{sections}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="openSection"
+    >
+      <view class="issue-section-head">
+        <view>
+          <text class="issue-index">{{index + 1 < 10 ? '0' + (index + 1) : index + 1}}</text>
+          <text class="issue-label">{{item.label}}</text>
+        </view>
+        <text class="issue-arrow">›</text>
+      </view>
+      <text class="issue-title">{{item.title}}</text>
+      <text class="issue-summary">{{item.summary}}</text>
+      <view class="tags">
+        <text class="tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
+      </view>
+      <view class="source-inline" catchtap="copyIssueSource" data-url="{{item.url}}">
+        <text>{{item.source}}</text>
+        <text>复制原文链接</text>
+      </view>
+    </button>
+  </view>
+
+  <view class="reason-card" wx:if="{{priceWatch.length}}">
+    <text class="label">价格观察</text>
+    <view class="watch-row" wx:for="{{priceWatch}}" wx:key="label">
+      <text>{{item.label}}</text>
+      <text>{{item.level}}</text>
+    </view>
+  </view>
+
+  <view class="reason-card" wx:if="{{learningCard}}">
+    <text class="label">今天只学一个概念</text>
+    <text class="learn-term">{{learningCard.term}}</text>
+    <text class="reason">{{learningCard.plain_explanation}}</text>
+    <text class="learn-extra">{{learningCard.project_angle}}</text>
+  </view>
+</view>
+
+<view class="page detail" wx:elif="{{section}}">
   <view class="detail-hero">
     <text class="rank">{{rank}}</text>
     <text class="meta">{{section.label}} / {{issue.date}}</text>

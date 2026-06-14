@@ -1,7 +1,8 @@
 <view class="page archive">
   <view class="archive-hero">
     <text class="eyebrow">历史归档</text>
-    <text class="title">每天的新能源判断，都留在这里。</text>
+    <text class="title">每天的新能源判断，都完整留在这里。</text>
+    <text class="hero-copy">点开任意一天，查看当天 6 条资讯、价格观察和学习卡片。</text>
   </view>
 
   <view class="archive-list">
@@ -12,11 +13,30 @@
       data-date="{{item.date}}"
       bindtap="openIssue"
     >
-      <view>
-        <text class="date">{{item.date}}</text>
-        <text class="headline">{{item.headline}}</text>
+      <view class="row-head">
+        <view>
+          <text class="date">{{item.date}}</text>
+          <text class="weekday">{{item.weekday}}</text>
+        </view>
+        <view class="enter">
+          <text>查看日报</text>
+          <text>›</text>
+        </view>
       </view>
-      <text class="weekday">{{item.weekday}}</text>
+
+      <text class="headline">{{item.summary}}</text>
+
+      <view class="preview-grid">
+        <view class="preview-chip" wx:for="{{item.sectionsPreview}}" wx:key="id">
+          <text>{{item.indexText}}</text>
+          <text>{{item.label}}</text>
+        </view>
+      </view>
+
+      <view class="row-foot">
+        <text>{{item.sectionCount}} 条资讯</text>
+        <text>完整日报</text>
+      </view>
     </button>
   </view>
 </view>
