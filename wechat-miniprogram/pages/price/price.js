@@ -4,23 +4,42 @@ function formatPrice(value) {
   return Number(value || 0).toFixed(3).replace(/0+$/, "").replace(/\.$/, "");
 }
 
-function buildBars(points) {
-  if (!points || points.length === 0) return [];
+const CHART_WIDTH = 580;
+const CHART_HEIGHT = 220;
+
+function buildLineChart(points) {
+  if (!points || points.length === 0) return { points: [], segments: [] };
   const values = points.map((point) => Number(point.value || 0));
   const min = Math.min(...values);
   const max = Math.max(...values);
   const span = Math.max(max - min, 0.012);
-  return points.map((point) => {
+  const chartPoints = points.map((point, index) => {
     const value = Number(point.value || 0);
     const ratio = (value - min) / span;
     return {
       date: String(point.date || "").slice(5),
       valueText: formatPrice(value),
       level: point.level || "",
-      height: Math.round(72 + ratio * 120),
-      offset: Math.round((1 - ratio) * 120)
+      left: points.length === 1 ? CHART_WIDTH / 2 : Math.round((index / (points.length - 1)) * CHART_WIDTH),
+      bottom: Math.round(34 + ratio * (CHART_HEIGHT - 68))
     };
   });
+
+  const segments = chartPoints.slice(0, -1).map((point, index) => {
+    const next = chartPoints[index + 1];
+    const dx = next.left - point.left;
+    const dy = next.bottom - point.bottom;
+    const width = Math.sqrt((dx * dx) + (dy * dy));
+    const angle = -(Math.atan2(dy, dx) * 180 / Math.PI);
+    return {
+      left: point.left,
+      bottom: point.bottom,
+      width: Math.round(width),
+      angle: angle.toFixed(2)
+    };
+  });
+
+  return { points: chartPoints, segments };
 }
 
 function buildTrend(rawTrend, rangeDays) {
@@ -39,7 +58,7 @@ function buildTrend(rawTrend, rangeDays) {
       directionText: delta > 0 ? "上行" : (delta < 0 ? "下行" : "持平"),
       rangeText: `近 ${rangeDays} 日，已记录 ${points.length} 天`,
       dates: points.map((point) => String(point.date || "").slice(5)).join(" / "),
-      bars: buildBars(points)
+      chart: buildLineChart(points)
     };
   });
 }

@@ -143,14 +143,11 @@
   text-align: right;
 }
 
-.tariff-chart {
+.line-chart {
   position: relative;
-  display: flex;
-  align-items: flex-end;
-  gap: 28rpx;
   height: 300rpx;
   margin-top: 34rpx;
-  padding: 0 8rpx 8rpx;
+  overflow: hidden;
 }
 
 .axis-line {
@@ -171,30 +168,29 @@
 .axis-mid { bottom: 142rpx; }
 .axis-top { bottom: 242rpx; }
 
-.price-point {
-  position: relative;
-  z-index: 1;
-  flex: 1;
-  display: grid;
-  align-items: end;
-  justify-items: center;
-  gap: 10rpx;
-  height: 100%;
+.line-segment {
+  position: absolute;
+  z-index: 2;
+  height: 6rpx;
+  border-radius: 999rpx;
+  background: linear-gradient(90deg, #0071e3, #53b9ff);
+  box-shadow: 0 10rpx 24rpx rgba(0, 113, 227, .2);
+  transform-origin: 0 50%;
 }
 
-.point-value {
-  color: #1d1d1f;
-  font-size: 22rpx;
-  font-weight: 760;
-}
-
-.point-marker {
-  display: grid;
-  justify-items: center;
-  gap: 0;
+.line-point {
+  position: absolute;
+  z-index: 3;
+  width: 96rpx;
+  height: 72rpx;
+  margin-left: -48rpx;
+  margin-bottom: -30rpx;
 }
 
 .point-dot {
+  position: absolute;
+  left: 33rpx;
+  top: 27rpx;
   width: 18rpx;
   height: 18rpx;
   border-radius: 999rpx;
@@ -203,16 +199,25 @@
   box-shadow: 0 8rpx 22rpx rgba(0, 113, 227, .24);
 }
 
-.point-column {
-  width: 4rpx;
-  min-height: 72rpx;
-  border-radius: 999rpx;
-  background: linear-gradient(180deg, #0071e3, rgba(0, 113, 227, .08));
+.point-value {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  color: #1d1d1f;
+  font-size: 22rpx;
+  font-weight: 760;
+  text-align: center;
 }
 
 .point-date {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50rpx;
   color: #8f8f95;
   font-size: 21rpx;
+  text-align: center;
 }
 
 .tariff-note {

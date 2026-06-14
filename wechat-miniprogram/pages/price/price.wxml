@@ -33,16 +33,26 @@
         <text>{{item.rangeText}} / {{item.deltaText}}，{{item.directionText}}</text>
       </view>
 
-      <view class="tariff-chart">
+      <view class="line-chart">
         <view class="axis-line"></view>
         <view class="axis-line axis-mid"></view>
         <view class="axis-line axis-top"></view>
-        <view class="price-point" wx:for="{{item.bars}}" wx:for-item="point" wx:key="date">
+        <view
+          class="line-segment"
+          wx:for="{{item.chart.segments}}"
+          wx:for-item="segment"
+          wx:key="left"
+          style="left: {{segment.left}}rpx; bottom: {{segment.bottom}}rpx; width: {{segment.width}}rpx; transform: rotate({{segment.angle}}deg);"
+        ></view>
+        <view
+          class="line-point"
+          wx:for="{{item.chart.points}}"
+          wx:for-item="point"
+          wx:key="date"
+          style="left: {{point.left}}rpx; bottom: {{point.bottom}}rpx;"
+        >
           <text class="point-value">{{point.valueText}}</text>
-          <view class="point-marker" style="margin-top: {{point.offset}}rpx;">
-            <view class="point-dot"></view>
-            <view class="point-column" style="height: {{point.height}}rpx;"></view>
-          </view>
+          <view class="point-dot"></view>
           <text class="point-date">{{point.date}}</text>
         </view>
       </view>
