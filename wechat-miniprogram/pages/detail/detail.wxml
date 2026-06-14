@@ -59,12 +59,31 @@
     <text class="summary">{{section.summary}}</text>
   </view>
 
-  <view class="reason-card">
+  <view class="reason-card insight-card">
+    <text class="label">新闻是什么</text>
+    <text class="insight-line" wx:for="{{section.what_happened}}" wx:key="*this">{{item}}</text>
+  </view>
+
+  <view class="reason-card insight-card">
     <text class="label">为什么重要</text>
     <text class="reason">{{section.why_it_matters}}</text>
     <view class="tags">
       <text class="tag" wx:for="{{section.tags}}" wx:key="*this">{{item}}</text>
     </view>
+  </view>
+
+  <view class="reason-card insight-card">
+    <text class="label">你要盯什么</text>
+    <view class="watch-row-detail" wx:for="{{section.watch_points}}" wx:key="*this">
+      <text>{{index + 1 < 10 ? '0' + (index + 1) : index + 1}}</text>
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <view class="reason-card term-card" wx:if="{{section.term_explain}}">
+    <text class="label">关键词白话</text>
+    <text class="term-name">{{section.term_explain.term}}</text>
+    <text class="reason">{{section.term_explain.explain}}</text>
   </view>
 
   <view class="source-card">

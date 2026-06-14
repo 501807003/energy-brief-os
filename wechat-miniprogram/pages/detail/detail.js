@@ -1,5 +1,26 @@
 const briefData = require("../../utils/issues");
 
+function ensureList(value, fallback) {
+  if (Array.isArray(value) && value.length) return value;
+  if (typeof value === "string" && value) return [value];
+  return fallback || [];
+}
+
+function enrichSection(section) {
+  if (!section) return null;
+
+  return {
+    ...section,
+    what_happened: ensureList(section.what_happened, [section.summary].filter(Boolean)),
+    industry_impact: ensureList(section.industry_impact, [section.why_it_matters].filter(Boolean)),
+    watch_points: ensureList(section.watch_points, section.tags || []),
+    term_explain: section.term_explain || {
+      term: section.label || "关键词",
+      explain: section.why_it_matters || section.summary || "这条资讯与新能源项目、价格、并网或政策判断有关。"
+    }
+  };
+}
+
 Page({
   data: {
     issue: null,
@@ -14,7 +35,7 @@ Page({
   onLoad(options) {
     const date = options.date || briefData.latestDate;
     const issue = briefData.issues[date] || briefData.issues[briefData.latestDate];
-    const sections = issue.sections || [];
+    const sections = (issue.sections || []).map(enrichSection);
     const isIssueMode = options.mode === "issue" || !options.id;
     const sectionIndex = Math.max(0, sections.findIndex((item) => item.id === options.id));
     const section = sections[sectionIndex] || sections[0];

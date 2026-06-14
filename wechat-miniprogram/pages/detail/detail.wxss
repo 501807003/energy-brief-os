@@ -55,6 +55,10 @@
   box-shadow: 0 24rpx 70rpx rgba(0, 0, 0, .07);
 }
 
+.insight-card {
+  padding: 34rpx 34rpx 36rpx;
+}
+
 .issue-section-scroll {
   width: calc(100% + 44rpx);
   margin-top: 28rpx;
@@ -177,6 +181,66 @@
   margin-top: 20rpx;
   font-size: 30rpx;
   line-height: 1.65;
+}
+
+.insight-line {
+  display: block;
+  margin-top: 22rpx;
+  color: #33363d;
+  font-size: 30rpx;
+  line-height: 1.68;
+}
+
+.insight-line + .insight-line {
+  padding-top: 18rpx;
+  border-top: 1rpx solid rgba(0, 0, 0, .06);
+}
+
+.watch-row-detail {
+  display: grid;
+  grid-template-columns: 54rpx 1fr;
+  gap: 18rpx;
+  margin-top: 22rpx;
+  color: #33363d;
+  font-size: 29rpx;
+  line-height: 1.58;
+}
+
+.watch-row-detail text:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46rpx;
+  height: 46rpx;
+  border-radius: 999rpx;
+  color: #0071e3;
+  background: #eaf3ff;
+  font-size: 22rpx;
+  font-weight: 820;
+}
+
+.watch-row-detail text:first-child {
+  color: #fff;
+  background: #1d1d1f;
+}
+
+.term-card {
+  background: #1d1d1f;
+  color: #fff;
+}
+
+.term-card .label,
+.term-card .reason {
+  color: rgba(255, 255, 255, .72);
+}
+
+.term-name {
+  display: block;
+  margin-top: 18rpx;
+  color: #fff;
+  font-size: 40rpx;
+  font-weight: 850;
+  line-height: 1.18;
 }
 
 .tags {
