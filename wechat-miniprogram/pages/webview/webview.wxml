@@ -1,4 +1,0 @@
-<view class="webview-page" wx:if="{{url}}">
-  <web-view src="{{url}}"></web-view>
-  <button class="copy-fallback" bindtap="copyLink">复制原文链接</button>
-</view>
