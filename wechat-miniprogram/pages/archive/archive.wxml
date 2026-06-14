@@ -1,42 +1,54 @@
 <view class="page archive">
   <view class="archive-hero">
     <text class="eyebrow">历史归档</text>
-    <text class="title">每天的新能源判断，都完整留在这里。</text>
-    <text class="hero-copy">点开任意一天，查看当天 6 条资讯、价格观察和学习卡片。</text>
+    <text class="title">按日期回看每一份简报。</text>
+    <text class="hero-copy">先选日期，再打开当天完整日报。日期多了以后，可以横向滑动快速定位。</text>
   </view>
 
-  <view class="archive-list">
-    <button
-      class="archive-row"
-      wx:for="{{archive}}"
-      wx:key="date"
-      data-date="{{item.date}}"
-      bindtap="openIssue"
-    >
-      <view class="row-head">
-        <view>
-          <text class="date">{{item.date}}</text>
-          <text class="weekday">{{item.weekday}}</text>
-        </view>
-        <view class="enter">
-          <text>查看日报</text>
-          <text>›</text>
-        </view>
+  <scroll-view class="date-scroll" scroll-x="true" enhanced="true" show-scrollbar="false">
+    <view class="date-track">
+      <button
+        class="date-pill {{selectedDate === item.date ? 'active' : ''}}"
+        wx:for="{{archive}}"
+        wx:key="date"
+        data-date="{{item.date}}"
+        bindtap="selectIssue"
+      >
+        <text>{{item.monthText}}月</text>
+        <text>{{item.dayText}}</text>
+        <text>{{item.weekday}}</text>
+      </button>
+    </view>
+  </scroll-view>
+
+  <view class="issue-shell" wx:if="{{selectedIssue}}">
+    <view class="issue-date">
+      <view>
+        <text class="date">{{selectedIssue.date}}</text>
+        <text class="weekday">{{selectedIssue.weekday}}</text>
       </view>
-
-      <text class="headline">{{item.summary}}</text>
-
-      <view class="preview-grid">
-        <view class="preview-chip" wx:for="{{item.sectionsPreview}}" wx:key="id">
-          <text>{{item.indexText}}</text>
-          <text>{{item.label}}</text>
-        </view>
-      </view>
-
-      <view class="row-foot">
-        <text>{{item.sectionCount}} 条资讯</text>
+      <button
+        class="enter"
+        data-date="{{selectedIssue.date}}"
+        bindtap="openIssue"
+      >
         <text>完整日报</text>
+        <text>›</text>
+      </button>
+    </view>
+
+    <text class="headline">{{selectedIssue.summary}}</text>
+
+    <view class="preview-grid">
+      <view class="preview-chip" wx:for="{{selectedIssue.sectionsPreview}}" wx:key="id">
+        <text>{{item.indexText}}</text>
+        <text>{{item.label}}</text>
       </view>
-    </button>
+    </view>
+
+    <view class="row-foot">
+      <text>{{selectedIssue.sectionCount}} 条资讯</text>
+      <text>{{selectedIssue.date}}</text>
+    </view>
   </view>
 </view>
