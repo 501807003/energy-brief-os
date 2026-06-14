@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 DAILY_DIR = ROOT / "daily"
-CSS_VERSION = "20260613-2"
+CSS_VERSION = "20260614-3"
 
 
 def esc(value: object) -> str:
