@@ -82,6 +82,21 @@ def validate_issue(issue: dict) -> None:
         for key in ["title", "summary", "why_it_matters", "label"]:
             if not section.get(key):
                 fail(f"section {section.get('id')} missing {key}")
+        what_happened = section.get("what_happened", [])
+        if not isinstance(what_happened, list) or len(what_happened) < 3:
+            fail(f"section {section.get('id')} must include at least 3 what_happened paragraphs")
+        if any(len(str(item).strip()) < 18 for item in what_happened[:3]):
+            fail(f"section {section.get('id')} what_happened paragraphs are too short")
+
+        watch_points = section.get("watch_points", [])
+        if not isinstance(watch_points, list) or len(watch_points) < 3:
+            fail(f"section {section.get('id')} must include at least 3 watch_points")
+
+        term_explain = section.get("term_explain")
+        if not isinstance(term_explain, dict) or not term_explain.get("term") or not term_explain.get("explain"):
+            fail(f"section {section.get('id')} must include term_explain.term and term_explain.explain")
+        if len(str(term_explain.get("explain", "")).strip()) < 24:
+            fail(f"section {section.get('id')} term_explain.explain is too short")
 
 
 def validate_html(issue: dict) -> None:
