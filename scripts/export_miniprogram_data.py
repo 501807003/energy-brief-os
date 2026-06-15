@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 MINIPROGRAM_DATA = ROOT / "wechat-miniprogram" / "utils" / "issues.js"
+PUBLIC_API_DATA = ROOT / "api" / "brief-data.json"
 
 
 def load_issues() -> list[dict]:
@@ -73,6 +74,12 @@ def main() -> None:
     content += json.dumps(payload, ensure_ascii=False, indent=2)
     content += ";\n\nmodule.exports = briefData;\n"
     MINIPROGRAM_DATA.write_text(content, encoding="utf-8")
+
+    PUBLIC_API_DATA.parent.mkdir(parents=True, exist_ok=True)
+    PUBLIC_API_DATA.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
 
 if __name__ == "__main__":

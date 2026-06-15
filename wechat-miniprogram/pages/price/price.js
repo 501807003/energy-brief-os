@@ -1,4 +1,4 @@
-const briefData = require("../../utils/issues");
+const briefStore = require("../../utils/brief-data");
 
 function formatPrice(value) {
   return Number(value || 0).toFixed(3).replace(/0+$/, "").replace(/\.$/, "");
@@ -59,8 +59,8 @@ function buildTrend(rawTrend, rangeDays) {
       latestValue: latest,
       latestValueText: formatPrice(latest),
       deltaText: `${delta >= 0 ? "+" : ""}${delta.toFixed(3)}`,
-      directionText: delta > 0 ? "上行" : (delta < 0 ? "下行" : "持平"),
-      rangeText: `近 ${rangeDays} 日，已记录 ${points.length} 天`,
+      directionText: delta > 0 ? "\u4e0a\u884c" : (delta < 0 ? "\u4e0b\u884c" : "\u6301\u5e73"),
+      rangeText: `\u8fd1 ${rangeDays} \u65e5\uff0c\u5df2\u8bb0\u5f55 ${points.length} \u5929`,
       dates: points.map((point) => String(point.date || "").slice(5)).join(" / "),
       chart: buildLineChart(points)
     };
@@ -72,13 +72,20 @@ Page({
     trend: [],
     rangeDays: 7,
     rangeOptions: [
-      { label: "近 7 日", value: 7 },
-      { label: "近 30 日", value: 30 }
+      { label: "\u8fd1 7 \u65e5", value: 7 },
+      { label: "\u8fd1 30 \u65e5", value: 30 }
     ]
   },
 
   onLoad() {
-    this.refreshTrend(7);
+    this.loadBriefData(7);
+  },
+
+  loadBriefData(rangeDays) {
+    briefStore.getBriefData().then((briefData) => {
+      this.briefData = briefData;
+      this.refreshTrend(rangeDays);
+    });
   },
 
   setRange(event) {
@@ -87,6 +94,7 @@ Page({
   },
 
   refreshTrend(rangeDays) {
+    const briefData = this.briefData || briefStore.getCachedBriefData();
     const trend = buildTrend(briefData.priceTrend || [], rangeDays);
     this.setData({ trend, rangeDays });
   }

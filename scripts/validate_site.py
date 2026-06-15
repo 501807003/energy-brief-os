@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 DAILY_DIR = ROOT / "daily"
 MINIPROGRAM_DATA = ROOT / "wechat-miniprogram" / "utils" / "issues.js"
+PUBLIC_API_DATA = ROOT / "api" / "brief-data.json"
 
 REQUIRED_SECTION_IDS = {"solar", "wind", "storage", "grid", "market", "policy"}
 REQUIRED_TARIFF_IDS = {"solar_tariff", "wind_tariff"}
@@ -134,6 +135,12 @@ def validate_html(issue: dict) -> None:
         fail("miniprogram data does not include price trend")
     if not (ROOT / "wechat-miniprogram" / "pages" / "price" / "price.wxml").exists():
         fail("miniprogram price page is missing")
+
+    api_data = json.loads(read_text(PUBLIC_API_DATA))
+    if api_data.get("latestDate") != issue_date:
+        fail("public API data does not point to latest issue")
+    if "priceTrend" not in api_data:
+        fail("public API data does not include price trend")
 
 
 def main() -> None:
