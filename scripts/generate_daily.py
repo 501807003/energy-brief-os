@@ -285,7 +285,7 @@ def render_daily(issue: dict, prefix: str = "") -> str:
   <main>
     <section class="hero">
       <div>
-        <p class="eyebrow">{esc(TEXT["brand"])} / {esc(issue.get("weekday"))} {esc(issue.get("generated_at"))}</p>
+        <p class="eyebrow">{esc(TEXT["brand"])} / {esc(issue.get("weekday"))}</p>
         <h1 class="hero-title">{safe_hero_line(issue.get("hero_line_zh") or issue.get("headline"))}</h1>
         <p class="hero-copy">{esc(issue.get("daily_judgment"))}</p>
 
