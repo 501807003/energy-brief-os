@@ -1,6 +1,6 @@
 {
   "description": "新能源简报微信小程序预览版",
-  "appid": "wxb3f5434fa1e627be",
+  "appid": "wxc7f9357970d14f3a",
   "projectname": "energy-brief-os-miniprogram",
   "setting": {
     "urlCheck": false,
@@ -28,7 +28,7 @@
     }
   },
   "compileType": "miniprogram",
-  "libVersion": "latest",
+  "libVersion": "3.15.2",
   "simulatorPluginLibVersion": {},
   "packOptions": {
     "ignore": [],
